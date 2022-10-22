@@ -18,6 +18,10 @@ class WelcomeScreen extends StatelessWidget {
             height: 0,
             width: double.infinity,
           ),
+          Image(
+            image: AssetImage("assets/images/logo.png"),
+            width: 200,
+          ),
           Text(
             "quokka",
             style: TextStyle(fontSize: 36),
