@@ -38,8 +38,8 @@ class _BodyState extends State<Body> {
               child: PageView.builder(
                 itemCount: splashData.length,
                 itemBuilder: (context, index) => SplashContent(
-                  text: splashData[index]['text'],
-                  image: splashData[index]['image'],
+                  text: splashData[index]['text'].toString(),
+                  image: splashData[index]['image'].toString(),
                 ),
               ),
             ),
