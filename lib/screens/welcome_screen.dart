@@ -1,6 +1,7 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:depression_prediction_app/constants.dart';
 import 'package:flutter/material.dart';
-
 import 'splash/splash_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
@@ -13,6 +14,7 @@ class WelcomeScreen extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
+        // ignore: prefer_const_literals_to_create_immutables
         children: [
           SizedBox(
             height: 0,
