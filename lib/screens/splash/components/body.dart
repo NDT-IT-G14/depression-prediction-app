@@ -3,6 +3,8 @@
 import 'package:depression_prediction_app/constants.dart';
 import 'package:flutter/material.dart';
 
+import '../components/splash_content.dart';
+
 class Body extends StatefulWidget {
   const Body({Key? key}) : super(key: key);
 
@@ -11,6 +13,7 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
+  int currentPage = 0;
   List<Map<String, String>> splashData = [
     {
       "text": "Detect Depression through \na Machine Learning",
@@ -45,50 +48,32 @@ class _BodyState extends State<Body> {
             ),
             Expanded(
               flex: 2,
-              child: SizedBox(),
+              child: Column(
+                children: [
+                  Row(
+                    children: List.generate(
+                      splashData.length,
+                      (index) => buildDot(index: index),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ],
         ),
       ),
     );
   }
-}
 
-class SplashContent extends StatelessWidget {
-  const SplashContent({
-    Key? key,
-    required this.text,
-    required this.image,
-  }) : super(key: key);
-  final String text, image;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      // ignore: prefer_const_literals_to_create_immutables
-      children: [
-        Spacer(),
-        Text(
-          "quokka",
-          style: TextStyle(
-            fontSize: 36,
-            color: kPrimaryColor,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        Spacer(),
-        Text(
-          text,
-          style: TextStyle(fontSize: 16),
-        ),
-        Spacer(
-          flex: 2,
-        ),
-        Image(
-          image: AssetImage(image),
-          width: 180,
-        ),
-      ],
+  Container buildDot({required int index}) {
+    return Container(
+      margin: EdgeInsets.only(right: 5),
+      height: 6,
+      width: currentPage == index ? 6 : 6,
+      decoration: BoxDecoration(
+        color: currentPage == index ? kPrimaryColor : Color(0xFFD8D8D8),
+        borderRadius: BorderRadius.circular(3),
+      ),
     );
   }
 }
