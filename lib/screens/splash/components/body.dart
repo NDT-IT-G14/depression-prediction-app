@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:depression_prediction_app/components/rounded_button.dart';
 import 'package:depression_prediction_app/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -55,6 +56,7 @@ class _BodyState extends State<Body> {
               flex: 2,
               child: Column(
                 children: [
+                  Spacer(),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: List.generate(
@@ -62,6 +64,11 @@ class _BodyState extends State<Body> {
                       (index) => buildDot(index: index),
                     ),
                   ),
+                  Spacer(),
+                  SizedBox(
+                    child: RoundedButton(text: "Continue", press: () {}),
+                  ),
+                  Spacer(),
                 ],
               ),
             ),
