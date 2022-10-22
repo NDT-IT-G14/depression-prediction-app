@@ -1,4 +1,7 @@
+import 'package:depression_prediction_app/constants.dart';
 import 'package:flutter/material.dart';
+
+import 'splash/splash_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
   static const routeName = "/welcome_screen";
@@ -22,6 +25,13 @@ class WelcomeScreen extends StatelessWidget {
           Text(
             "Welcome to our app",
             style: TextStyle(fontSize: 18),
+          ),
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(primary: kPrimaryColor),
+            onPressed: () {
+              Navigator.of(context).pushNamed(SplashScreen.routeName);
+            },
+            child: Text("Get Started"),
           ),
         ],
       ),
