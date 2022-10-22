@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:depression_prediction_app/constants.dart';
 import 'package:depression_prediction_app/routes.dart';
 import 'package:depression_prediction_app/screens/welcome_screen.dart';
@@ -18,6 +20,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: kPrimaryColor,
         scaffoldBackgroundColor: Colors.white,
+        textTheme: TextTheme(
+          bodyText1: TextStyle(color: kTextColor),
+          bodyText2: TextStyle(color: kTextColor),
+        ),
       ),
       initialRoute: WelcomeScreen.routeName,
       routes: routes,
