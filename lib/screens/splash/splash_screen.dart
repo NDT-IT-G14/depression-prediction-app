@@ -1,8 +1,10 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'components/body.dart';
 
 class SplashScreen extends StatelessWidget {
-  static const routeName = "splash/splash_screen";
+  static const routeName = "/splash_screen";
   const SplashScreen({Key? key}) : super(key: key);
 
   @override

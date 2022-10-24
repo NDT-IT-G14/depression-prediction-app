@@ -1,9 +1,9 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:depression_prediction_app/components/rounded_button.dart';
 import 'package:depression_prediction_app/constants.dart';
 import 'package:flutter/material.dart';
 
+import '../../../components/rounded_button.dart';
 import '../components/splash_content.dart';
 
 class Body extends StatefulWidget {
@@ -65,8 +65,9 @@ class _BodyState extends State<Body> {
                     ),
                   ),
                   Spacer(),
-                  SizedBox(
-                    child: RoundedButton(text: "Continue", press: () {}),
+                  RoundedButton(
+                    text: "Continue",
+                    press: () {},
                   ),
                   Spacer(),
                 ],

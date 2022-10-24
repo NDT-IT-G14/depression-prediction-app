@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:depression_prediction_app/constants.dart';
 import 'package:flutter/material.dart';
+import '../constants.dart';
 import 'splash/splash_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
@@ -10,6 +10,7 @@ class WelcomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -32,12 +33,22 @@ class WelcomeScreen extends StatelessWidget {
             "Welcome to our app",
             style: TextStyle(fontSize: 18),
           ),
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(primary: kPrimaryColor),
-            onPressed: () {
-              Navigator.of(context).pushNamed(SplashScreen.routeName);
-            },
-            child: Text("Get Started"),
+          SizedBox(
+            width: size.width * 0.8,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(29),
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: kPrimaryColor,
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
+                ),
+                onPressed: () {
+                  Navigator.of(context).pushNamed(SplashScreen.routeName);
+                },
+                child: Text("Get Started"),
+              ),
+            ),
           ),
         ],
       ),

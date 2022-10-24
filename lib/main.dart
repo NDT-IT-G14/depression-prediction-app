@@ -25,6 +25,7 @@ class MyApp extends StatelessWidget {
           bodyText2: TextStyle(color: kTextColor),
         ),
       ),
+      // home: SplashScreen(),
       initialRoute: WelcomeScreen.routeName,
       routes: routes,
     );
