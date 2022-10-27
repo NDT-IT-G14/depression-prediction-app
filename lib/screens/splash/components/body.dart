@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:depression_prediction_app/constants.dart';
+import 'package:depression_prediction_app/screens/sign_in/sign_in_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../../components/rounded_button.dart';
