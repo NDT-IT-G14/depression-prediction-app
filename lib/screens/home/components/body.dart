@@ -23,12 +23,28 @@ class Body extends StatelessWidget {
             ),
             child: Text.rich(
               TextSpan(
-                  text: "Start symtoms monitoring",
-                  style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white)),
+                text: "Start symtoms monitoring",
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
             ),
+          ),
+          SizedBox(height: 20),
+          Container(
+            height: 245,
+            width: 202,
+            child: Stack(children: [
+              Container(
+                height: 221,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(29),
+                ),
+              ),
+            ]),
           ),
         ],
       ),
