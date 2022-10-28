@@ -11,11 +11,10 @@ class Body extends StatelessWidget {
     return SafeArea(
       child: Column(
         children: [
-          SizedBox(
-            height: 20,
-          ),
+          SizedBox(height: 20),
           Container(
             margin: EdgeInsets.symmetric(horizontal: 20),
+            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
             width: double.infinity,
             height: 120,
             decoration: BoxDecoration(
@@ -23,7 +22,12 @@ class Body extends StatelessWidget {
               borderRadius: BorderRadius.circular(29),
             ),
             child: Text.rich(
-              TextSpan(text: "Start symtoms monitoring"),
+              TextSpan(
+                  text: "Start symtoms monitoring",
+                  style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white)),
             ),
           ),
         ],
