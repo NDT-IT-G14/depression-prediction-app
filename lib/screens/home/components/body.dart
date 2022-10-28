@@ -10,6 +10,7 @@ class Body extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(height: 20),
           Container(
@@ -34,6 +35,7 @@ class Body extends StatelessWidget {
           ),
           SizedBox(height: 20),
           Container(
+            margin: EdgeInsets.symmetric(horizontal: 20),
             height: 245,
             width: 202,
             child: Stack(children: [
@@ -42,6 +44,7 @@ class Body extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(29),
+                  // ignore: prefer_const_literals_to_create_immutables
                   boxShadow: [
                     BoxShadow(
                         offset: Offset(0, 10),
