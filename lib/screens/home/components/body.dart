@@ -36,8 +36,8 @@ class Body extends StatelessWidget {
           SizedBox(height: 20),
           Container(
             margin: EdgeInsets.symmetric(horizontal: 20),
-            height: 245,
-            width: 202,
+            height: 170,
+            width: 170,
             child: Stack(children: [
               Container(
                 height: 221,
