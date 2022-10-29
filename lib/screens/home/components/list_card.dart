@@ -5,10 +5,12 @@ import '../../../constants.dart';
 class ListCard extends StatelessWidget {
   final String text;
   final String subtext;
+  final Function press;
   const ListCard({
     Key? key,
     required this.text,
     required this.subtext,
+    required this.press,
   }) : super(key: key);
 
   @override
@@ -48,23 +50,27 @@ class ListCard extends StatelessWidget {
                   children: [
                     Padding(
                       padding: const EdgeInsets.only(left: 24),
-                      child: RichText(
-                        text: TextSpan(
-                          style: TextStyle(color: kPrimaryColor),
-                          // ignore: prefer_const_literals_to_create_immutables
-                          children: [
-                            TextSpan(
-                              text: "$text\n",
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 18,
+                      child: InkWell(
+                        onTap: press(),
+                        child: RichText(
+                          text: TextSpan(
+                            style: TextStyle(color: kPrimaryColor),
+                            // ignore: prefer_const_literals_to_create_immutables
+                            children: [
+                              TextSpan(
+                                text: "$text\n",
+                                // ignore: prefer_const_constructors
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
+                                ),
                               ),
-                            ),
-                            TextSpan(
-                              text: subtext,
-                              style: TextStyle(color: kTextColor),
-                            ),
-                          ],
+                              TextSpan(
+                                text: subtext,
+                                style: TextStyle(color: kTextColor),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
