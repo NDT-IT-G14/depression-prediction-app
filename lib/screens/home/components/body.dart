@@ -17,7 +17,7 @@ class Body extends StatelessWidget {
             margin: EdgeInsets.symmetric(horizontal: 20),
             padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
             width: double.infinity,
-            height: 120,
+            height: 150,
             decoration: BoxDecoration(
               color: kPrimaryColor,
               borderRadius: BorderRadius.circular(29),
@@ -34,29 +34,80 @@ class Body extends StatelessWidget {
             ),
           ),
           SizedBox(height: 20),
-          Container(
-            margin: EdgeInsets.symmetric(horizontal: 20),
-            height: 170,
-            width: 170,
-            child: Stack(children: [
+          ListCard(
+            text: 'Music',
+            subtext: "Enjoy your life",
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class ListCard extends StatelessWidget {
+  final String text;
+  final String subtext;
+  const ListCard({
+    Key? key,
+    required this.text,
+    required this.subtext,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Container(
+          margin: EdgeInsets.symmetric(horizontal: 20),
+          height: 170,
+          width: 170,
+          child: Stack(
+            children: [
               Container(
-                height: 221,
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(29),
                   // ignore: prefer_const_literals_to_create_immutables
                   boxShadow: [
                     BoxShadow(
-                        offset: Offset(0, 10),
-                        blurRadius: 33,
-                        color: Color(0xFFD3D3D3).withOpacity(.84)),
+                      offset: Offset(0, 10),
+                      blurRadius: 33,
+                      color: kShadowColor,
+                    ),
                   ],
                 ),
               ),
-            ]),
+              Positioned(
+                top: 110,
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 24),
+                      child: RichText(
+                        text: TextSpan(
+                          style: TextStyle(color: kPrimaryColor),
+                          // ignore: prefer_const_literals_to_create_immutables
+                          children: [
+                            TextSpan(
+                              text: "$text\n",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 18),
+                            ),
+                            TextSpan(
+                              text: subtext,
+                              style: TextStyle(color: kTextColor),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
