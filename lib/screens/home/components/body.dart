@@ -36,17 +36,20 @@ class Body extends StatelessWidget {
             ),
           ),
           SizedBox(height: 20),
-          Row(
-            children: [
-              ListCard(
-                text: 'Music',
-                subtext: "Enjoy your life",
-              ),
-              ListCard(
-                text: 'Music',
-                subtext: "Enjoy your life",
-              ),
-            ],
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                ListCard(
+                  text: 'Music',
+                  subtext: "Enjoy your life",
+                ),
+                ListCard(
+                  text: 'Quotes',
+                  subtext: "Fulfill your life",
+                ),
+              ],
+            ),
           ),
         ],
       ),
