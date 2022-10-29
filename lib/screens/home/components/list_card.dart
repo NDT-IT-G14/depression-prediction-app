@@ -17,22 +17,28 @@ class ListCard extends StatelessWidget {
       children: [
         Container(
           margin: EdgeInsets.symmetric(horizontal: 20),
-          height: 170,
+          height: 220,
           width: 170,
           child: Stack(
             children: [
-              Container(
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(29),
-                  // ignore: prefer_const_literals_to_create_immutables
-                  boxShadow: [
-                    BoxShadow(
-                      offset: Offset(0, 10),
-                      blurRadius: 33,
-                      color: kShadowColor,
-                    ),
-                  ],
+              Positioned(
+                bottom: 30,
+                left: 0,
+                right: 0,
+                child: Container(
+                  height: 170,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(29),
+                    // ignore: prefer_const_literals_to_create_immutables
+                    boxShadow: [
+                      BoxShadow(
+                        offset: Offset(0, 10),
+                        blurRadius: 33,
+                        color: kShadowColor,
+                      ),
+                    ],
+                  ),
                 ),
               ),
               Positioned(
