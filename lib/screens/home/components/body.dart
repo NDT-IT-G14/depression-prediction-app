@@ -49,7 +49,7 @@ class Body extends StatelessWidget {
                     BoxShadow(
                         offset: Offset(0, 10),
                         blurRadius: 33,
-                        color: Color(0xFFD3D3D3)),
+                        color: Color(0xFFD3D3D3).withOpacity(.84)),
                   ],
                 ),
               ),
