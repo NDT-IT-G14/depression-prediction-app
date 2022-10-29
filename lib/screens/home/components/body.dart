@@ -16,7 +16,7 @@ class Body extends StatelessWidget {
         children: [
           SizedBox(height: 20),
           Container(
-            margin: EdgeInsets.symmetric(horizontal: 20),
+            margin: EdgeInsets.symmetric(horizontal: 25),
             padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
             width: double.infinity,
             height: 150,
@@ -45,10 +45,14 @@ class Body extends StatelessWidget {
                   ListCard(
                     text: 'Music',
                     subtext: "Enjoy your life",
+                    press: () {
+                      // Navigator.of(context).pushNamed(MusicScreen.routeName);
+                    },
                   ),
                   ListCard(
                     text: 'Quotes',
                     subtext: "Fulfill your life",
+                    press: () {},
                   ),
                 ],
               ),
@@ -57,12 +61,14 @@ class Body extends StatelessWidget {
                 // ignore: prefer_const_literals_to_create_immutables
                 children: [
                   ListCard(
-                    text: 'Music',
+                    text: 'Emergancy',
                     subtext: "Enjoy your life",
+                    press: () {},
                   ),
                   ListCard(
-                    text: 'Quotes',
+                    text: 'Feedbacks',
                     subtext: "Fulfill your life",
+                    press: () {},
                   ),
                 ],
               ),
