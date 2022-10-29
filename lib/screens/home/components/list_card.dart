@@ -17,16 +17,17 @@ class ListCard extends StatelessWidget {
       children: [
         Container(
           margin: EdgeInsets.symmetric(horizontal: 20),
-          height: 220,
-          width: 170,
+          height: 200,
+          width: 150,
           child: Stack(
             children: [
               Positioned(
-                bottom: 30,
+                top: 20,
+                bottom: 20,
                 left: 0,
                 right: 0,
                 child: Container(
-                  height: 170,
+                  height: 150,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(29),
@@ -55,7 +56,9 @@ class ListCard extends StatelessWidget {
                             TextSpan(
                               text: "$text\n",
                               style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 18),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18,
+                              ),
                             ),
                             TextSpan(
                               text: subtext,
