@@ -6,10 +6,10 @@ class RoundedButton extends StatelessWidget {
   const RoundedButton({
     Key? key,
     required this.text,
-    required this.press,
+    this.press,
   }) : super(key: key);
   final String text;
-  final Function press;
+  final VoidCallback? press;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class RoundedButton extends StatelessWidget {
             primary: kPrimaryColor,
             padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
           ),
-          onPressed: press(),
+          onPressed: press,
           child: Text(
             text,
             style: const TextStyle(fontSize: 18),
