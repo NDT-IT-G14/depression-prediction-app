@@ -68,7 +68,9 @@ class _BodyState extends State<Body> {
                   Spacer(),
                   RoundedButton(
                     text: "Continue",
-                    press: () {},
+                    press: () {
+                      Navigator.of(context).pushNamed(SignInScreen.routeName);
+                    },
                   ),
                   Spacer(),
                 ],
