@@ -27,9 +27,9 @@ class MyApp extends StatelessWidget {
           bodyText2: TextStyle(color: kTextColor),
         ),
       ),
-      home: FeedbackScreen(),
-      // initialRoute: WelcomeScreen.routeName,
-      // routes: routes,
+      // home: HomeScreen(),
+      initialRoute: WelcomeScreen.routeName,
+      routes: routes,
     );
   }
 }
