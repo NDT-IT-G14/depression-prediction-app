@@ -1,4 +1,5 @@
 import 'package:comment_box/comment/comment.dart';
+import 'package:depression_prediction_app/constants.dart';
 import 'package:flutter/material.dart';
 
 class Body extends StatefulWidget {
@@ -71,7 +72,7 @@ class _BodyState extends State<Body> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Quakka Feedback"),
-        backgroundColor: Colors.blueAccent,
+        backgroundColor: kPrimaryColor,
       ),
       body: Container(
         child: CommentBox(

@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:depression_prediction_app/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
-
 import '../../../components/already_have_an_account_check.dart';
 import '../../../components/rounded_button.dart';
 import '../../../components/rounded_input_field.dart';
@@ -42,7 +42,9 @@ class Body extends StatelessWidget {
         SizedBox(height: 10),
         RoundedButton(
           text: "SIGN IN",
-          press: () {},
+          press: () {
+            Navigator.of(context).pushNamed(HomeScreen.routeName);
+          },
         ),
         SizedBox(height: 10),
         AlreadyHaveAnAccountCheck(
