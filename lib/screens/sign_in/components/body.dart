@@ -1,22 +1,23 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:depression_prediction_app/screens/sign_in/sign_in_screen.dart';
 import 'package:flutter/material.dart';
+
 import '../../../components/already_have_an_account_check.dart';
 import '../../../components/rounded_button.dart';
 import '../../../components/rounded_input_field.dart';
 import '../../../components/rounded_password_field.dart';
 import '../../../components/social_icon.dart';
 import '../../../constants.dart';
-import 'or_divider.dart';
+import '../../sign_up/components/or_divider.dart';
 
 class Body extends StatelessWidget {
+  const Body({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Text(
           "Hello!",
@@ -38,20 +39,14 @@ class Body extends StatelessWidget {
           hintText: "Password",
           onChanged: (value) {},
         ),
-        RoundedPasswordField(
-          hintText: "Confirm Password",
-          onChanged: (value) {},
-        ),
         SizedBox(height: 10),
         RoundedButton(
-          text: "SIGNUP",
-          press: () {
-            Navigator.of(context).pushNamed(SignInScreen.routeName);
-          },
+          text: "SIGN IN",
+          press: () {},
         ),
         SizedBox(height: 10),
         AlreadyHaveAnAccountCheck(
-          login: false,
+          login: true,
           press: () {},
         ),
         OrDivider(),
