@@ -1,10 +1,9 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:depression_prediction_app/constants.dart';
-import 'package:depression_prediction_app/screens/sign_in/sign_in_screen.dart';
 import 'package:flutter/material.dart';
-
 import '../../../components/rounded_button.dart';
+import '../../sign_up/sign_up_screen.dart';
 import '../components/splash_content.dart';
 
 class Body extends StatefulWidget {
@@ -69,7 +68,7 @@ class _BodyState extends State<Body> {
                   RoundedButton(
                     text: "Continue",
                     press: () {
-                      Navigator.of(context).pushNamed(SignInScreen.routeName);
+                      Navigator.of(context).pushNamed(SignUpScreen.routeName);
                     },
                   ),
                   Spacer(),

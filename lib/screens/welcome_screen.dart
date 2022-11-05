@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import '../constants.dart';
+import '../components/rounded_button.dart';
 import 'splash/splash_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
@@ -10,7 +10,6 @@ class WelcomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -29,26 +28,17 @@ class WelcomeScreen extends StatelessWidget {
             "quokka",
             style: TextStyle(fontSize: 36),
           ),
+          SizedBox(height: 10),
           Text(
             "Welcome to our app",
             style: TextStyle(fontSize: 18),
           ),
-          SizedBox(
-            width: size.width * 0.8,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(29),
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  primary: kPrimaryColor,
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
-                ),
-                onPressed: () {
-                  Navigator.of(context).pushNamed(SplashScreen.routeName);
-                },
-                child: Text("Get Started"),
-              ),
-            ),
+          SizedBox(height: 10),
+          RoundedButton(
+            text: "Continue",
+            press: () {
+              Navigator.of(context).pushNamed(SplashScreen.routeName);
+            },
           ),
         ],
       ),
