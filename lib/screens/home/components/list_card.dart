@@ -5,7 +5,7 @@ import '../../../constants.dart';
 class ListCard extends StatelessWidget {
   final String text;
   final String subtext;
-  final Function press;
+  final VoidCallback? press;
   const ListCard({
     Key? key,
     required this.text,
@@ -51,7 +51,7 @@ class ListCard extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(left: 24),
                       child: InkWell(
-                        onTap: press(),
+                        onTap: press,
                         child: RichText(
                           text: TextSpan(
                             style: TextStyle(color: kPrimaryColor),
