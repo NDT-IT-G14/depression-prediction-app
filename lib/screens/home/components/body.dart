@@ -4,6 +4,7 @@ import 'package:depression_prediction_app/constants.dart';
 import 'package:depression_prediction_app/screens/feedback/feedback_screen.dart';
 import 'package:flutter/material.dart';
 
+import '../../music/music_screen.dart';
 import 'list_card.dart';
 
 class Body extends StatelessWidget {
@@ -47,13 +48,15 @@ class Body extends StatelessWidget {
                     text: 'Music',
                     subtext: "Enjoy your life",
                     press: () {
-                      // Navigator.of(context).pushNamed(MusicScreen.routeName);
+                      Navigator.of(context).pushNamed(MusicScreen.routeName);
                     },
                   ),
                   ListCard(
                     text: 'Quotes',
                     subtext: "Fulfill your life",
-                    press: () {},
+                    press: () {
+                      // Navigator.of(context).pushNamed(FeedbackScreen.routeName);
+                    },
                   ),
                 ],
               ),
@@ -64,7 +67,9 @@ class Body extends StatelessWidget {
                   ListCard(
                     text: 'Emergancy',
                     subtext: "Enjoy your life",
-                    press: () {},
+                    press: () {
+                      // Navigator.of(context).pushNamed(.routeName);
+                    },
                   ),
                   ListCard(
                     text: 'Feedbacks',
