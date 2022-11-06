@@ -70,7 +70,7 @@ class Body extends StatelessWidget {
                     text: 'Feedbacks',
                     subtext: "Fulfill your life",
                     press: () {
-                      // Navigator.of(context).pushNamed(FeedbackScreen.routeName);
+                      Navigator.of(context).pushNamed(FeedbackScreen.routeName);
                     },
                   ),
                 ],
