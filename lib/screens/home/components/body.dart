@@ -2,6 +2,7 @@
 
 import 'package:depression_prediction_app/constants.dart';
 import 'package:depression_prediction_app/screens/feedback/feedback_screen.dart';
+import 'package:depression_prediction_app/screens/quiz/quiz_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../music/music_screen.dart';
@@ -26,13 +27,18 @@ class Body extends StatelessWidget {
               color: kPrimaryColor,
               borderRadius: BorderRadius.circular(29),
             ),
-            child: Text.rich(
-              TextSpan(
-                text: "Start symtoms monitoring",
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
+            child: InkWell(
+              onTap: () {
+                Navigator.of(context).pushNamed(QuizScreen.routeName);
+              },
+              child: Text.rich(
+                TextSpan(
+                  text: "Start symtoms monitoring",
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
                 ),
               ),
             ),
