@@ -37,6 +37,8 @@ dependencies:
   flutter_svg: ^1.1.5
   provider: ^6.0.4
   comment_box: ^0.0.17
+  websafe_svg: ^2.1.2+4
+  get: ^4.6.5
   
 
 dev_dependencies:
