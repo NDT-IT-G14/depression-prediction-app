@@ -1,7 +1,8 @@
 // ignore_for_file: prefer_final_fields, unnecessary_this
 
 import 'package:get/get.dart';
-import '../screens/models/Questions.dart';
+
+import '../models/Questions.dart';
 
 class QuestionController extends GetxController {
   List<Question> _questions = sample_data
