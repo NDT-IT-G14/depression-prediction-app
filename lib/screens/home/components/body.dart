@@ -24,7 +24,11 @@ class Body extends StatelessWidget {
             width: double.infinity,
             height: 150,
             decoration: BoxDecoration(
-              color: kPrimaryColor,
+              image: DecorationImage(
+                fit: BoxFit.fill,
+                image: AssetImage("assets/images/background systom.jpg"),
+              ),
+              // color: kPrimaryColor,
               borderRadius: BorderRadius.circular(29),
             ),
             child: InkWell(
@@ -33,11 +37,11 @@ class Body extends StatelessWidget {
               },
               child: Text.rich(
                 TextSpan(
-                  text: "Start symtoms monitoring",
+                  text: "Start symtoms\nmonitoring",
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
-                    color: Colors.white,
+                    color: Colors.black,
                   ),
                 ),
               ),
