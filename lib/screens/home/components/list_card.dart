@@ -31,7 +31,7 @@ class ListCard extends StatelessWidget {
                 child: Container(
                   height: 150,
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: kPrimaryLightColor,
                     borderRadius: BorderRadius.circular(29),
                     // ignore: prefer_const_literals_to_create_immutables
                     boxShadow: [

@@ -15,4 +15,13 @@ class QuestionController extends GetxController {
       .toList();
 
   List<Question> get questions => this._questions;
+
+  bool _isAnswered = false;
+  bool get isAnswered => this._isAnswered;
+
+  late int _selectedAns;
+  int get selectedAns => this._selectedAns;
+
+  RxInt _questionNumber = 1.obs;
+  RxInt get questionNumber => this._questionNumber;
 }
