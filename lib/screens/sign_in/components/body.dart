@@ -9,9 +9,13 @@ import '../../../components/rounded_password_field.dart';
 import '../../../components/social_icon.dart';
 import '../../../constants.dart';
 import '../../sign_up/components/or_divider.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class Body extends StatelessWidget {
-  const Body({Key? key}) : super(key: key);
+  // final const Body({Key? key}) : super(key: key);
+
+  String email = '';
+  String password = '';
 
   @override
   Widget build(BuildContext context) {
@@ -33,19 +37,31 @@ class Body extends StatelessWidget {
         ),
         RoundedInputField(
           hintText: "Your Email",
-          onChanged: (value) {},
+          onChanged: (value) {
+            email = value;
+          },
         ),
         RoundedPasswordField(
           hintText: "Password",
-          onChanged: (value) {},
+          onChanged: (value) {
+            password = value;
+          },
         ),
         SizedBox(height: 10),
         RoundedButton(
-          text: "SIGN IN",
-          press: () {
-            Navigator.of(context).pushNamed(HomeScreen.routeName);
-          },
-        ),
+            text: "SIGN IN",
+            // press: () {
+            //   Navigator.of(context).pushNamed(HomeScreen.routeName);
+            // },
+            press: () async {
+              try {
+                await FirebaseAuth.instance.signInWithEmailAndPassword(
+                    email: email, password: password);
+                Navigator.of(context).pushNamed(HomeScreen.routeName);
+              } catch (e) {
+                print(e.toString());
+              }
+            }),
         SizedBox(height: 10),
         AlreadyHaveAnAccountCheck(
           login: true,
@@ -71,5 +87,10 @@ class Body extends StatelessWidget {
         )
       ],
     );
+  }
+
+  Future SignIn() async {
+    await FirebaseAuth.instance
+        .signInWithEmailAndPassword(email: email, password: password);
   }
 }

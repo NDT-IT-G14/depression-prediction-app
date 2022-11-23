@@ -39,6 +39,7 @@ dependencies:
   comment_box: ^0.0.17
   websafe_svg: ^2.1.2+4
   get: ^4.6.5
+  firebase_auth: ^4.1.3
   
 
 dev_dependencies:
