@@ -4,7 +4,6 @@ import 'package:depression_prediction_app/constants.dart';
 import 'package:depression_prediction_app/screens/feedback/feedback_screen.dart';
 import 'package:depression_prediction_app/screens/quiz/quiz_screen.dart';
 import 'package:flutter/material.dart';
-
 import '../../music/music_screen.dart';
 import 'list_card.dart';
 

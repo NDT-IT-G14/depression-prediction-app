@@ -55,20 +55,20 @@ class Body extends StatelessWidget {
         ),
         SizedBox(height: 10),
         RoundedButton(
-            text: "SIGNUP",
-            press: () async {
-              if (password == confirm_password) {
-                await FirebaseAuth.instance.createUserWithEmailAndPassword(
-                    email: email, password: password);
-                Navigator.of(context).pushNamed(HomeScreen.routeName);
-              } else {
-                print('$password and $confirm_password does not match');
-              }
-            }
-            // press: () {
-            //   Navigator.of(context).pushNamed(SignInScreen.routeName);
-            // },
-            ),
+          text: "SIGNUP",
+          // press: () async {
+          //   if (password == confirm_password) {
+          //     await FirebaseAuth.instance.createUserWithEmailAndPassword(
+          //         email: email, password: password);
+          //     Navigator.of(context).pushNamed(HomeScreen.routeName);
+          //   } else {
+          //     print('$password and $confirm_password does not match');
+          //   }
+          // }
+          press: () {
+            Navigator.of(context).pushNamed(SignInScreen.routeName);
+          },
+        ),
         SizedBox(height: 10),
         AlreadyHaveAnAccountCheck(
           login: false,

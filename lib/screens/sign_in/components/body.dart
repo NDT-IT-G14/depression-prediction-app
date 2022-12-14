@@ -49,19 +49,20 @@ class Body extends StatelessWidget {
         ),
         SizedBox(height: 10),
         RoundedButton(
-            text: "SIGN IN",
-            // press: () {
-            //   Navigator.of(context).pushNamed(HomeScreen.routeName);
-            // },
-            press: () async {
-              try {
-                await FirebaseAuth.instance.signInWithEmailAndPassword(
-                    email: email, password: password);
-                Navigator.of(context).pushNamed(HomeScreen.routeName);
-              } catch (e) {
-                print(e.toString());
-              }
-            }),
+          text: "SIGN IN",
+          press: () {
+            Navigator.of(context).pushNamed(HomeScreen.routeName);
+          },
+          // press: () async {
+          //   try {
+          //     await FirebaseAuth.instance.signInWithEmailAndPassword(
+          //         email: email, password: password);
+          //     Navigator.of(context).pushNamed(HomeScreen.routeName);
+          //   } catch (e) {
+          //     print(e.toString());
+          //   }
+          // },
+        ),
         SizedBox(height: 10),
         AlreadyHaveAnAccountCheck(
           login: true,
