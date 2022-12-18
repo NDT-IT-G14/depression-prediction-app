@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, must_be_immutable, non_constant_identifier_names
 
 import 'package:depression_prediction_app/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
@@ -16,6 +16,8 @@ class Body extends StatelessWidget {
 
   String email = '';
   String password = '';
+
+  Body({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
