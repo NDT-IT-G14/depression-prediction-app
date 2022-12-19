@@ -14,17 +14,11 @@ class QuestionController extends GetxController {
 
   List<Question> get questions => this._questions;
 
-  bool _isAnswerd = false;
-  bool get isAnswerd => this._isAnswerd;
-
   late int _selectedAns;
   int get selectedAns => this._selectedAns;
 
   RxInt _questionNumber = 1.obs;
   RxInt get questionNumber => this._questionNumber;
 
-  void checkAns(Question question, int selectedIndex){
-    _isAnswerd = true;
-    _selectedAns = selectedIndex;
-  }
+
 }
