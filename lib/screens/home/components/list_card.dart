@@ -18,7 +18,7 @@ class ListCard extends StatelessWidget {
     return Column(
       children: [
         Container(
-          margin: EdgeInsets.symmetric(horizontal: 20),
+          margin: const EdgeInsets.symmetric(horizontal: 20),
           height: 200,
           width: 150,
           child: Stack(
@@ -36,7 +36,7 @@ class ListCard extends StatelessWidget {
                     // ignore: prefer_const_literals_to_create_immutables
                     boxShadow: [
                       BoxShadow(
-                        offset: Offset(0, 10),
+                        offset: const Offset(0, 10),
                         blurRadius: 33,
                         color: kShadowColor,
                       ),
@@ -54,7 +54,7 @@ class ListCard extends StatelessWidget {
                         onTap: press,
                         child: RichText(
                           text: TextSpan(
-                            style: TextStyle(color: kPrimaryColor),
+                            style: const TextStyle(color: kPrimaryColor),
                             // ignore: prefer_const_literals_to_create_immutables
                             children: [
                               TextSpan(
@@ -67,7 +67,7 @@ class ListCard extends StatelessWidget {
                               ),
                               TextSpan(
                                 text: subtext,
-                                style: TextStyle(color: kTextColor),
+                                style: const TextStyle(color: kTextColor),
                               ),
                             ],
                           ),

@@ -1,6 +1,5 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, avoid_print, non_constant_identifier_names, must_be_immutable
 
-import 'package:depression_prediction_app/screens/home/home_screen.dart';
 import 'package:depression_prediction_app/screens/sign_in/sign_in_screen.dart';
 import 'package:flutter/material.dart';
 import '../../../components/already_have_an_account_check.dart';
@@ -16,6 +15,8 @@ class Body extends StatelessWidget {
   String email = '';
   String password = '';
   String confirm_password = '';
+
+  Body({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;

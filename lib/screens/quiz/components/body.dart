@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:websafe_svg/websafe_svg.dart';
-
 import '../../../constants.dart';
 import '../../../controllers/question_controller.dart';
 import 'question_card.dart';
@@ -11,7 +10,7 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    QuestionController _questionController = Get.put(QuestionController());
+    QuestionController questionController = Get.put(QuestionController());
     return Stack(
       children: [
         WebsafeSvg.asset(
@@ -23,7 +22,7 @@ class Body extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
+              const Padding(
                 padding: EdgeInsets.symmetric(horizontal: kDefaultPadding),
               ),
               Text.rich(
@@ -42,18 +41,18 @@ class Body extends StatelessWidget {
                               ?.copyWith(color: kSecondaryColor)),
                     ]),
               ),
-              Divider(
+              const Divider(
                 thickness: 1.5,
                 color: Colors.white,
               ),
-              SizedBox(
+              const SizedBox(
                 height: kDefaultPadding,
               ),
               Expanded(
                 child: PageView.builder(
-                  itemCount: _questionController.questions.length,
+                  itemCount: questionController.questions.length,
                   itemBuilder: (context, index) => QuestionCard(
-                    question: _questionController.questions[index],
+                    question: questionController.questions[index],
                   ),
                 ),
               ),
