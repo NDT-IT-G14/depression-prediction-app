@@ -80,8 +80,8 @@ class _BodyState extends State<Body> {
         backgroundColor: kPrimaryColor,
       ),
       body: CommentBox(
-        userImage:
-            "https://lh3.googleusercontent.com/a-/AOh14GjRHcaendrf6gU5fPIVd8GIl1OgblrMMvGUoCBj4g=s400",
+        // userImage:
+        //     "https://lh3.googleusercontent.com/a-/AOh14GjRHcaendrf6gU5fPIVd8GIl1OgblrMMvGUoCBj4g=s400",
         labelText: 'Write a comment...',
         withBorder: false,
         errorText: 'Comment cannot be blank',
