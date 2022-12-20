@@ -2,9 +2,9 @@
 
 import 'package:depression_prediction_app/constants.dart';
 import 'package:depression_prediction_app/screens/feedback/feedback_screen.dart';
+import 'package:depression_prediction_app/screens/profile/profile_screen.dart';
 import 'package:depression_prediction_app/screens/quiz/quiz_screen.dart';
 import 'package:flutter/material.dart';
-import '../../music/music_screen.dart';
 import '../../quotes/quote_screen.dart';
 import 'list_card.dart';
 
@@ -51,10 +51,10 @@ class Body extends StatelessWidget {
                 // ignore: prefer_const_literals_to_create_immutables
                 children: [
                   ListCard(
-                    text: 'Music',
-                    subtext: "Enjoy your life",
+                    text: 'Profile',
+                    subtext: "Sea your profile",
                     press: () {
-                      Navigator.of(context).pushNamed(MusicScreen.routeName);
+                      Navigator.of(context).pushNamed(ProfileScreen.routeName);
                     },
                   ),
                   ListCard(

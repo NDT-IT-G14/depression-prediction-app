@@ -1,6 +1,7 @@
 import 'package:depression_prediction_app/screens/feedback/feedback_screen.dart';
 import 'package:depression_prediction_app/screens/home/home_screen.dart';
 import 'package:depression_prediction_app/screens/music/music_screen.dart';
+import 'package:depression_prediction_app/screens/profile/profile_screen.dart';
 import 'package:depression_prediction_app/screens/quiz/quiz_screen.dart';
 import 'package:depression_prediction_app/screens/quotes/quote_screen.dart';
 import 'package:depression_prediction_app/screens/sign_in/sign_in_screen.dart';
@@ -19,4 +20,5 @@ final Map<String, WidgetBuilder> routes = {
   MusicScreen.routeName: (_) => const MusicScreen(),
   FeedbackScreen.routeName: (_) => const FeedbackScreen(),
   QuotesScreen.routeName: (_) => const QuotesScreen(),
+  ProfileScreen.routeName: (_) => const ProfileScreen(),
 };
