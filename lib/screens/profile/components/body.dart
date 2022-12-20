@@ -40,7 +40,7 @@ class _ProfileState extends State<Body> {
           ),
           _settingsCard(),
           const Spacer(),
-          logoutButton()
+          updateButton()
         ],
       )),
     );
@@ -161,28 +161,32 @@ class _ProfileState extends State<Body> {
     );
   }
 
-  Widget logoutButton() {
-    return InkWell(
-      onTap: () {},
-      child: Container(
-          color: const Color.fromARGB(255, 1, 205, 124),
-          child: Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
-                Icon(
-                  Icons.logout,
-                  color: Colors.white,
+  Widget updateButton() {
+    return Row(
+      children: [
+        InkWell(
+          onTap: () {},
+          child: Container(
+              color: const Color.fromARGB(255, 48, 138, 102),
+              child: Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Icon(
+                      Icons.logout,
+                      color: Colors.white,
+                    ),
+                    SizedBox(width: 10),
+                    Text(
+                      "Update Profile",
+                      style: TextStyle(color: Colors.white, fontSize: 18),
+                    )
+                  ],
                 ),
-                SizedBox(width: 10),
-                Text(
-                  "Logout",
-                  style: TextStyle(color: Colors.white, fontSize: 18),
-                )
-              ],
-            ),
-          )),
+              )),
+        ),
+      ],
     );
   }
 }
