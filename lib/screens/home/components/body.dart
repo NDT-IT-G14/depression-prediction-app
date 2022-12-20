@@ -5,6 +5,7 @@ import 'package:depression_prediction_app/screens/feedback/feedback_screen.dart'
 import 'package:depression_prediction_app/screens/quiz/quiz_screen.dart';
 import 'package:flutter/material.dart';
 import '../../music/music_screen.dart';
+import '../../quotes/quote_screen.dart';
 import 'list_card.dart';
 
 class Body extends StatelessWidget {
@@ -60,7 +61,7 @@ class Body extends StatelessWidget {
                     text: 'Quotes',
                     subtext: "Fulfill your life",
                     press: () {
-                      // Navigator.of(context).pushNamed(FeedbackScreen.routeName);
+                      Navigator.of(context).pushNamed(QuotesScreen.routeName);
                     },
                   ),
                 ],

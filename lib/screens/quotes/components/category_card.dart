@@ -7,11 +7,11 @@ class CategoryCard extends StatelessWidget {
   final String title;
   final Function press;
   const CategoryCard({
-    required Key key,
+    super.key,
     required this.svgSrc,
     required this.title,
     required this.press,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class CategoryCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(13),
           boxShadow: [
             BoxShadow(
-                offset: Offset(0, 17),
+                offset: const Offset(0, 17),
                 blurRadius: 17,
                 spreadRadius: -23,
                 color: kShadowColor)
@@ -35,9 +35,9 @@ class CategoryCard extends StatelessWidget {
           child: InkWell(
             child: Column(
               children: <Widget>[
-                Spacer(),
+                const Spacer(),
                 Image.asset(svgSrc),
-                Spacer(),
+                const Spacer(),
                 Text(
                   title,
                   textAlign: TextAlign.center,

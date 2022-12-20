@@ -7,6 +7,8 @@ import 'package:depression_prediction_app/screens/welcome_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 
+import 'screens/quotes/quote_screen.dart';
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // We're using the manual installation on non-web platforms since Google sign in plugin doesn't yet support Dart initialization.
@@ -49,7 +51,7 @@ class MyApp extends StatelessWidget {
           bodyText2: TextStyle(color: kTextColor),
         ),
       ),
-      // home: QuizScreen(),
+      // home: QuotesScreen(),
       initialRoute: WelcomeScreen.routeName,
       routes: routes,
     );
