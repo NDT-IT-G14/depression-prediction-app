@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, depend_on_referenced_packages
 
 import 'package:depression_prediction_app/constants.dart';
+import 'package:depression_prediction_app/quiz_screen.dart';
 import 'package:depression_prediction_app/routes.dart';
 import 'package:depression_prediction_app/screens/welcome_screen.dart';
 import 'package:flutter/material.dart';
@@ -48,7 +49,7 @@ class MyApp extends StatelessWidget {
           bodyText2: TextStyle(color: kTextColor),
         ),
       ),
-      // home: HomeScreen(),
+      // home: QuizScreen(),
       initialRoute: WelcomeScreen.routeName,
       routes: routes,
     );
