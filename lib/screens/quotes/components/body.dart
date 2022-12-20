@@ -7,10 +7,6 @@ class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    var key2 = null;
-    var key3 = null;
-    var key4 = null;
-    var key5 = null;
     return Scaffold(
       body: Stack(
         children: <Widget>[
@@ -20,7 +16,7 @@ class Body extends StatelessWidget {
               color: Color(0xFFF5CEB8),
               image: DecorationImage(
                 alignment: Alignment.centerLeft,
-                image: AssetImage('assets/meditation.jpg'),
+                image: AssetImage('assets/images/meditation_bg.png'),
               ),
             ),
           ),
@@ -40,7 +36,7 @@ class Body extends StatelessWidget {
                         color: Color(0xFFF2BEA1),
                         shape: BoxShape.circle,
                       ),
-                      child: Image.asset("assets/icons/menu.svg"),
+                      child: Image.asset('assets/icons/menu.svg'),
                     ),
                   ),
                   Text(
@@ -61,7 +57,7 @@ class Body extends StatelessWidget {
                     child: TextField(
                       decoration: InputDecoration(
                         hintText: "Search",
-                        icon: Image.asset("assets/icons/search.svg"),
+                        icon: Image.asset('assets/icons/search.svg'),
                         border: InputBorder.none,
                       ),
                     ),
@@ -75,27 +71,23 @@ class Body extends StatelessWidget {
                     children: <Widget>[
                       CategoryCard(
                         title: "Diet Plan",
-                        svgSrc: "assets/icons/Hamburger.svg",
+                        svgSrc: 'assets/icons/Hamburger.svg',
                         press: () {},
-                        key: key2,
                       ),
                       CategoryCard(
                         title: "Exercises",
-                        svgSrc: "assets/icons/Exercises.svg",
+                        svgSrc: 'assets/icons/Exercises.svg',
                         press: () {},
-                        key: key3,
                       ),
                       CategoryCard(
                         title: "Meditation",
-                        svgSrc: "assets/icons/Meditation.svg",
+                        svgSrc: 'assets/icons/Meditation.svg',
                         press: () {},
-                        key: key4,
                       ),
                       CategoryCard(
                         title: "Yoga",
-                        svgSrc: "assets/icons/yoga.svg",
+                        svgSrc: 'assets/icons/yoga.svg',
                         press: () {},
-                        key: key5,
                       ),
                     ],
                   )),

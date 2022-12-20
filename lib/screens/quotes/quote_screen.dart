@@ -1,8 +1,9 @@
-import 'package:depression_prediction_app/screens/feedback/components/body.dart';
 import 'package:flutter/material.dart';
 
+import 'components/body.dart';
+
 class QuotesScreen extends StatelessWidget {
-  static const routeName = "/quiz_screen";
+  static const routeName = "/quotes_screen";
   const QuotesScreen({Key? key}) : super(key: key);
 
   @override

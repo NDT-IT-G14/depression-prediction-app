@@ -14,7 +14,7 @@ class QuizScreen extends StatelessWidget {
             "Start quiz",
             style: TextStyle(color: Colors.white, fontSize: 24),
           ),
-          _questionWidget(),
+          // _questionWidget(),
         ]),
       ),
     );
