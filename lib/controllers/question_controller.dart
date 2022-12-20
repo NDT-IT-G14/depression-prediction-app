@@ -1,8 +1,12 @@
 // ignore_for_file: prefer_final_fields, unnecessary_this
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../models/Questions.dart';
 
 class QuestionController extends GetxController {
+  PageController? _pageController;
+  Future<PageController?> get pageController async => this._pageController;
+
   List<Question> _questions = sample_data
       .map(
         (question) => Question(
@@ -23,8 +27,17 @@ class QuestionController extends GetxController {
   RxInt _questionNumber = 1.obs;
   RxInt get questionNumber => this._questionNumber;
 
-  void checkAns(Question question, int selectedIndex){
+  void checkAns(Question question, int selectedIndex) {
     _isAnswerd = true;
     _selectedAns = selectedIndex;
+
+    Future.delayed(const Duration(seconds: 3), () {
+      _isAnswerd = false;
+      _pageController!.nextPage(
+          duration: const Duration(milliseconds: 250), curve: Curves.ease);
+    });
+  }
+  void updateTheQnNum(int index){
+    _questionNumber.value = index +1;
   }
 }
