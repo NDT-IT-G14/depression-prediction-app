@@ -50,7 +50,7 @@ class Body extends StatelessWidget {
               ),
               Expanded(
                 child: PageView.builder(
-                  physics: const NeverScrollableScrollPhysics(),
+                  // physics: const NeverScrollableScrollPhysics(),
                   onPageChanged: questionController.updateTheQnNum,
                   itemCount: questionController.questions.length,
                   itemBuilder: (context, index) => QuestionCard(
