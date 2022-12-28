@@ -36,7 +36,8 @@ class Body extends StatelessWidget {
                         color: Color(0xFFF2BEA1),
                         shape: BoxShape.circle,
                       ),
-                      child: Image.asset('assets/icons/menu.svg'),
+                      child: Image.network(
+                          'https://www.simplilearn.com/ice9/free_resources_article_thumb/what_is_image_Processing.jpg'),
                     ),
                   ),
                   Text(
