@@ -1,8 +1,7 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, non_constant_identifier_names
 
 import 'package:depression_prediction_app/constants.dart';
 import 'package:depression_prediction_app/screens/feedback/feedback_screen.dart';
-import 'package:depression_prediction_app/screens/home/components/bottom_nav_bar.dart';
 import 'package:depression_prediction_app/screens/profile/profile_screen.dart';
 import 'package:depression_prediction_app/screens/quiz/quiz_screen.dart';
 import 'package:flutter/material.dart';
