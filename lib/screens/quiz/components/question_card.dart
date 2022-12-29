@@ -28,7 +28,7 @@ class QuestionCard extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            question.question,
+            question.title,
             style: Theme.of(context)
                 .textTheme
                 .headline6
@@ -39,7 +39,7 @@ class QuestionCard extends StatelessWidget {
             question.options.length,
             (index) => Option(
               index: index,
-              text: question.options[index],
+              text: question.options.toString(),
               press: () => controller.checkAns(question, index),
             ),
           ),
