@@ -1,14 +1,10 @@
 // ignore_for_file: prefer_const_constructors, depend_on_referenced_packages
 
 import 'package:depression_prediction_app/constants.dart';
-import 'package:depression_prediction_app/quiz_page.dart';
 import 'package:depression_prediction_app/routes.dart';
 import 'package:depression_prediction_app/screens/welcome_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-
-import 'option.dart';
-import 'screens/quotes/quote_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -53,9 +49,9 @@ class MyApp extends StatelessWidget {
           bodyText2: TextStyle(color: kTextColor),
         ),
       ),
-      home: QuizScreen(),
-      // initialRoute: WelcomeScreen.routeName,
-      // routes: routes,
+      // home: QuizScreen(),
+      initialRoute: WelcomeScreen.routeName,
+      routes: routes,
     );
   }
 }
