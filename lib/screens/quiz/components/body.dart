@@ -1,12 +1,9 @@
-
-
 import 'package:depression_prediction_app/widgets/next_button.dart';
 import 'package:depression_prediction_app/widgets/option_card.dart';
 import 'package:depression_prediction_app/widgets/result_box.dart';
 import 'package:flutter/material.dart';
 import '../../../models/Questions.dart';
 import '../../../widgets/question_widget.dart';
-
 
 class Body extends StatefulWidget {
   const Body({super.key});
@@ -32,72 +29,142 @@ class _BodyState extends State<Body> {
     Question(
       id: 1,
       title: "I couldn't seem to experience any positive feeling at all",
-      options: {'0': 'Never', '1': 'Sometimes', '2': 'Often', '3': 'Almost always'},
+      options: {
+        '0': 'Never',
+        '1': 'Sometimes',
+        '2': 'Often',
+        '3': 'Almost always'
+      },
     ),
     Question(
       id: 2,
       title: "I just couldn't seem to get going",
-      options: {'0': 'Never', '1': 'Sometimes', '2': 'Often', '3': 'Almost always'},
+      options: {
+        '0': 'Never',
+        '1': 'Sometimes',
+        '2': 'Often',
+        '3': 'Almost always'
+      },
     ),
     Question(
       id: 3,
       title: "I felt that I had nothing to look forward to",
-      options: {'0': 'Never', '1': 'Sometimes', '2': 'Often', '3': 'Almost always'},
+      options: {
+        '0': 'Never',
+        '1': 'Sometimes',
+        '2': 'Often',
+        '3': 'Almost always'
+      },
     ),
     Question(
       id: 4,
       title: "I felt sad and depressed",
-      options: {'0': 'Never', '1': 'Sometimes', '2': 'Often', '3': 'Almost always'},
+      options: {
+        '0': 'Never',
+        '1': 'Sometimes',
+        '2': 'Often',
+        '3': 'Almost always'
+      },
     ),
     Question(
       id: 5,
       title: "I felt that I had lost interest in just about everything",
-      options: {'0': 'Never', '1': 'Sometimes', '2': 'Often', '3': 'Almost always'},
+      options: {
+        '0': 'Never',
+        '1': 'Sometimes',
+        '2': 'Often',
+        '3': 'Almost always'
+      },
     ),
     Question(
       id: 6,
       title: "I felt I wasn't worth much as a person",
-      options: {'0': 'Never', '1': 'Sometimes', '2': 'Often', '3': 'Almost always'},
+      options: {
+        '0': 'Never',
+        '1': 'Sometimes',
+        '2': 'Often',
+        '3': 'Almost always'
+      },
     ),
     Question(
       id: 7,
       title: "I felt that life wasn't worthwhile",
-      options: {'0': 'Never', '1': 'Sometimes', '2': 'Often', '3': 'Almost always'},
+      options: {
+        '0': 'Never',
+        '1': 'Sometimes',
+        '2': 'Often',
+        '3': 'Almost always'
+      },
     ),
     Question(
       id: 8,
       title: "I couldn't seem to get any enjoyment out of the things I did",
-      options: {'0': 'Never', '1': 'Sometimes', '2': 'Often', '3': 'Almost always'},
+      options: {
+        '0': 'Never',
+        '1': 'Sometimes',
+        '2': 'Often',
+        '3': 'Almost always'
+      },
     ),
     Question(
       id: 9,
       title: "I felt down-hearted and blue",
-      options: {'0': 'Never', '1': 'Sometimes', '2': 'Often', '3': 'Almost always'},
+      options: {
+        '0': 'Never',
+        '1': 'Sometimes',
+        '2': 'Often',
+        '3': 'Almost always'
+      },
     ),
     Question(
       id: 10,
       title: "I was unable to become enthusiastic about anything",
-      options: {'0': 'Never', '1': 'Sometimes', '2': 'Often', '3': 'Almost always'},
+      options: {
+        '0': 'Never',
+        '1': 'Sometimes',
+        '2': 'Often',
+        '3': 'Almost always'
+      },
     ),
     Question(
       id: 11,
       title: "I felt I was pretty worthless",
-      options: {'0': 'Never', '1': 'Sometimes', '2': 'Often', '3': 'Almost always'},
+      options: {
+        '0': 'Never',
+        '1': 'Sometimes',
+        '2': 'Often',
+        '3': 'Almost always'
+      },
     ),
     Question(
       id: 12,
       title: "I could see nothing in the future to be hopeful about",
-      options: {'0': 'Never', '1': 'Sometimes', '2': 'Often', '3': 'Almost always'},
+      options: {
+        '0': 'Never',
+        '1': 'Sometimes',
+        '2': 'Often',
+        '3': 'Almost always'
+      },
     ),
     Question(
       id: 13,
       title: "I felt that life was meaningless",
-      options: {'0': 'Never', '1': 'Sometimes', '2': 'Often', '3': 'Almost always'},
+      options: {
+        '0': 'Never',
+        '1': 'Sometimes',
+        '2': 'Often',
+        '3': 'Almost always'
+      },
     ),
     Question(
       id: 14,
       title: "I found it difficult to work up the initiative to do things",
-      options: {'0': 'Never', '1': 'Sometimes', '2': 'Often', '3': 'Almost always'},
+      options: {
+        '0': 'Never',
+        '1': 'Sometimes',
+        '2': 'Often',
+        '3': 'Almost always'
+      },
     ),
     Question(
       id: 15,
@@ -137,20 +204,49 @@ class _BodyState extends State<Body> {
     ),
   ];
 
-  String apiUrl = 'https://depression-condition-prediction.up.railway.app/';
-
   final List<String> answers = [];
-
-  // http.Response response = await http.post(apiUrl, body: answers);
-
 
   String selectedIndex = '-1';
   int questionIndex = 0;
   String result = 'null';
   bool isPressed = false;
+  bool isLastQuestion = false;
+
+  //   if (questionIndex == _questions.length - 1) {
+  //     isLastQuestion = true;
+
+  // void nextQuestion() {
+  //   if (questionIndex == _questions.length - 1) {
+  //     isLastQuestion = true;
+  //     showDialog(
+  //       context: context,
+  //       barrierDismissible: false,
+  //       builder: (ctx) => ResultBox(
+  //         result: result,
+  //         onPressed: startOver,
+  //       ),
+  //     );
+  //   } else {
+  //     //   if (isPressed) {
+  //     setState(() {
+  //       questionIndex++;
+  //       isPressed = false;
+  //       selectedIndex = '-1';
+  //     });
+  //   } else {
+  //     // ScaffoldMessenger.of(context).showSnackBar(
+  //     //   const SnackBar(
+  //     //     content: Text('Please select any option'),
+  //     //     behavior: SnackBarBehavior.floating,
+  //     //     margin: EdgeInsets.symmetric(vertical: 20.0),
+  //     //   ),
+  //     // );
+  //   }
+  //   }
+  // }
 
   void nextQuestion() {
-    if (questionIndex == _questions.length - 1) {
+    if (isLastQuestion) {
       showDialog(
         context: context,
         barrierDismissible: false,
@@ -160,21 +256,11 @@ class _BodyState extends State<Body> {
         ),
       );
     } else {
-      //   if (isPressed) {
       setState(() {
         questionIndex++;
         isPressed = false;
         selectedIndex = '-1';
       });
-      //   } else {
-      //     // ScaffoldMessenger.of(context).showSnackBar(
-      //     //   const SnackBar(
-      //     //     content: Text('Please select any option'),
-      //     //     behavior: SnackBarBehavior.floating,
-      //     //     margin: EdgeInsets.symmetric(vertical: 20.0),
-      //     //   ),
-      //     // );
-      //   }
     }
   }
 
@@ -185,12 +271,16 @@ class _BodyState extends State<Body> {
       result = 'null';
       isPressed = false;
       answers.clear();
+      isLastQuestion = false;
     });
     Navigator.pop(context);
   }
 
   @override
   Widget build(BuildContext context) {
+    if (questionIndex == _questions.length - 1) {
+      isLastQuestion = true;
+    }
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 12, 59, 80),
       appBar: AppBar(
@@ -229,8 +319,8 @@ class _BodyState extends State<Body> {
       floatingActionButton: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10.0),
         child: NextButton(
-          nextQuestion: nextQuestion,
-          nextBtn: "Next",
+          onPressed: nextQuestion,
+          nextBtn: isLastQuestion ? "Submit" : "Next",
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
