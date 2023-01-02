@@ -1,9 +1,12 @@
+import 'dart:convert';
+
 import 'package:depression_prediction_app/widgets/next_button.dart';
 import 'package:depression_prediction_app/widgets/option_card.dart';
 import 'package:depression_prediction_app/widgets/result_box.dart';
 import 'package:flutter/material.dart';
 import '../../../models/Questions.dart';
 import '../../../widgets/question_widget.dart';
+import 'package:http/http.dart' as http;
 
 class Body extends StatefulWidget {
   const Body({super.key});
@@ -13,7 +16,6 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
-  // ignore: prefer_final_fields
   // List<Question> _questions = sample_data
   //     .map(
   //       (question) => Question(
@@ -29,237 +31,158 @@ class _BodyState extends State<Body> {
     Question(
       id: 1,
       title: "I couldn't seem to experience any positive feeling at all",
-      options: {
-        '0': 'Never',
-        '1': 'Sometimes',
-        '2': 'Often',
-        '3': 'Almost always'
-      },
+      options: {0: 'Never', 1: 'Sometimes', 2: 'Often', 3: 'Almost always'},
     ),
     Question(
       id: 2,
       title: "I just couldn't seem to get going",
-      options: {
-        '0': 'Never',
-        '1': 'Sometimes',
-        '2': 'Often',
-        '3': 'Almost always'
-      },
+      options: {0: 'Never', 1: 'Sometimes', 2: 'Often', 3: 'Almost always'},
     ),
     Question(
       id: 3,
       title: "I felt that I had nothing to look forward to",
-      options: {
-        '0': 'Never',
-        '1': 'Sometimes',
-        '2': 'Often',
-        '3': 'Almost always'
-      },
+      options: {0: 'Never', 1: 'Sometimes', 2: 'Often', 3: 'Almost always'},
     ),
     Question(
       id: 4,
       title: "I felt sad and depressed",
-      options: {
-        '0': 'Never',
-        '1': 'Sometimes',
-        '2': 'Often',
-        '3': 'Almost always'
-      },
+      options: {0: 'Never', 1: 'Sometimes', 2: 'Often', 3: 'Almost always'},
     ),
     Question(
       id: 5,
       title: "I felt that I had lost interest in just about everything",
-      options: {
-        '0': 'Never',
-        '1': 'Sometimes',
-        '2': 'Often',
-        '3': 'Almost always'
-      },
+      options: {0: 'Never', 1: 'Sometimes', 2: 'Often', 3: 'Almost always'},
     ),
     Question(
       id: 6,
       title: "I felt I wasn't worth much as a person",
-      options: {
-        '0': 'Never',
-        '1': 'Sometimes',
-        '2': 'Often',
-        '3': 'Almost always'
-      },
+      options: {0: 'Never', 1: 'Sometimes', 2: 'Often', 3: 'Almost always'},
     ),
     Question(
       id: 7,
       title: "I felt that life wasn't worthwhile",
-      options: {
-        '0': 'Never',
-        '1': 'Sometimes',
-        '2': 'Often',
-        '3': 'Almost always'
-      },
+      options: {0: 'Never', 1: 'Sometimes', 2: 'Often', 3: 'Almost always'},
     ),
     Question(
       id: 8,
       title: "I couldn't seem to get any enjoyment out of the things I did",
-      options: {
-        '0': 'Never',
-        '1': 'Sometimes',
-        '2': 'Often',
-        '3': 'Almost always'
-      },
+      options: {0: 'Never', 1: 'Sometimes', 2: 'Often', 3: 'Almost always'},
     ),
     Question(
       id: 9,
       title: "I felt down-hearted and blue",
-      options: {
-        '0': 'Never',
-        '1': 'Sometimes',
-        '2': 'Often',
-        '3': 'Almost always'
-      },
+      options: {0: 'Never', 1: 'Sometimes', 2: 'Often', 3: 'Almost always'},
     ),
     Question(
       id: 10,
       title: "I was unable to become enthusiastic about anything",
-      options: {
-        '0': 'Never',
-        '1': 'Sometimes',
-        '2': 'Often',
-        '3': 'Almost always'
-      },
+      options: {0: 'Never', 1: 'Sometimes', 2: 'Often', 3: 'Almost always'},
     ),
     Question(
       id: 11,
       title: "I felt I was pretty worthless",
-      options: {
-        '0': 'Never',
-        '1': 'Sometimes',
-        '2': 'Often',
-        '3': 'Almost always'
-      },
+      options: {0: 'Never', 1: 'Sometimes', 2: 'Often', 3: 'Almost always'},
     ),
     Question(
       id: 12,
       title: "I could see nothing in the future to be hopeful about",
-      options: {
-        '0': 'Never',
-        '1': 'Sometimes',
-        '2': 'Often',
-        '3': 'Almost always'
-      },
+      options: {0: 'Never', 1: 'Sometimes', 2: 'Often', 3: 'Almost always'},
     ),
     Question(
       id: 13,
       title: "I felt that life was meaningless",
-      options: {
-        '0': 'Never',
-        '1': 'Sometimes',
-        '2': 'Often',
-        '3': 'Almost always'
-      },
+      options: {0: 'Never', 1: 'Sometimes', 2: 'Often', 3: 'Almost always'},
     ),
     Question(
       id: 14,
       title: "I found it difficult to work up the initiative to do things",
-      options: {
-        '0': 'Never',
-        '1': 'Sometimes',
-        '2': 'Often',
-        '3': 'Almost always'
-      },
+      options: {0: 'Never', 1: 'Sometimes', 2: 'Often', 3: 'Almost always'},
     ),
     Question(
       id: 15,
       title: "How about your education",
       options: {
-        '0': 'No school',
-        '1': 'Less than high school',
-        '2': 'High school',
-        '3': 'University degree',
-        '4': 'Graduate degree'
+        0: 'No school',
+        1: 'Less than high school',
+        2: 'High school',
+        3: 'University degree',
+        4: 'Graduate degree'
       },
     ),
     Question(
       id: 16,
       title: "What is your gender",
-      options: {'0': 'Male', '1': 'Female', '2': 'Other'},
+      options: {0: 'Male', 1: 'Female', 2: 'Other'},
     ),
     Question(
       id: 17,
       title: "Are you married?",
       options: {
-        '0': 'Never married',
-        '1': 'Currently married',
-        '2': 'Previously married'
+        0: 'Never married',
+        1: 'Currently married',
+        2: 'Previously married'
       },
     ),
     Question(
       id: 18,
       title: "How about your age",
       options: {
-        '0': 'Primary Children',
-        '1': 'Secondary Children',
-        '2': 'Adults',
-        '3': 'Elder Adults',
-        '4': 'Older People'
+        0: 'Primary Children',
+        1: 'Secondary Children',
+        2: 'Adults',
+        3: 'Elder Adults',
+        4: 'Older People'
       },
     ),
   ];
+  final List<int> answers = [];
 
-  final List<String> answers = [];
-
-  String selectedIndex = '-1';
+  int selectedIndex = -1;
   int questionIndex = 0;
   String result = 'null';
   bool isPressed = false;
   bool isLastQuestion = false;
 
-  //   if (questionIndex == _questions.length - 1) {
-  //     isLastQuestion = true;
+  // ScaffoldMessenger.of(context).showSnackBar(
+  //   const SnackBar(
+  //     content: Text('Please select any option'),
+  //     behavior: SnackBarBehavior.floating,
+  //     margin: EdgeInsets.symmetric(vertical: 20.0),
+  //   ),
+  // );
 
-  // void nextQuestion() {
-  //   if (questionIndex == _questions.length - 1) {
-  //     isLastQuestion = true;
-  //     showDialog(
-  //       context: context,
-  //       barrierDismissible: false,
-  //       builder: (ctx) => ResultBox(
-  //         result: result,
-  //         onPressed: startOver,
-  //       ),
-  //     );
-  //   } else {
-  //     //   if (isPressed) {
-  //     setState(() {
-  //       questionIndex++;
-  //       isPressed = false;
-  //       selectedIndex = '-1';
-  //     });
-  //   } else {
-  //     // ScaffoldMessenger.of(context).showSnackBar(
-  //     //   const SnackBar(
-  //     //     content: Text('Please select any option'),
-  //     //     behavior: SnackBarBehavior.floating,
-  //     //     margin: EdgeInsets.symmetric(vertical: 20.0),
-  //     //   ),
-  //     // );
-  //   }
-  //   }
-  // }
-
-  void nextQuestion() {
+  void nextQuestion() async {
     if (isLastQuestion) {
-      showDialog(
-        context: context,
-        barrierDismissible: false,
-        builder: (ctx) => ResultBox(
-          result: result,
-          onPressed: startOver,
-        ),
-      );
+      final url =
+          Uri.parse("https://depression-condition-prediction.up.railway.app/");
+      final response = await http.post(url,
+          body: json.encode(answers),
+          headers: {'Content-Type': "application/json; charset=utf-8"});
+      // print('StatusCode: ${response.statusCode}');
+      // print('Return Date: ${response.body}');
+
+      if (response.statusCode == 200) {
+        final jsonResponse = jsonDecode(response.body);
+        result = jsonResponse;
+        showDialog(
+          context: context,
+          barrierDismissible: false,
+          builder: (ctx) => ResultBox(
+            condition: result,
+            onPressed: startOver,
+          ),
+        );
+        setState(() {
+          result = result;
+        });
+      } else {
+        // print('Request faild with status: ${response.statusCode}');
+      }
     } else {
       setState(() {
         questionIndex++;
         isPressed = false;
-        selectedIndex = '-1';
+        selectedIndex = -1;
       });
     }
   }
@@ -267,7 +190,7 @@ class _BodyState extends State<Body> {
   void startOver() {
     setState(() {
       questionIndex = 0;
-      selectedIndex = '-1';
+      selectedIndex = -1;
       result = 'null';
       isPressed = false;
       answers.clear();

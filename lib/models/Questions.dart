@@ -3,7 +3,7 @@
 class Question {
   final int id;
   final String title;
-  final Map<String,String> options;
+  final Map<int,String> options;
 
   Question(
       {required this.id,
