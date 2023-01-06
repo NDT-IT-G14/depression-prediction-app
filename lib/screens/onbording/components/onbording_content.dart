@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-
 import '../../../constants.dart';
 
 class SplashContent extends StatelessWidget {
@@ -19,25 +18,16 @@ class SplashContent extends StatelessWidget {
       children: [
         Spacer(),
         Text(
-          "quokka",
-          style: TextStyle(
-            fontSize: 36,
-            color: kPrimaryColor,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        Spacer(),
-        Text(
           text,
           textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 16),
+          style: TextStyle(fontSize: 18),
         ),
         Spacer(
-          flex: 2,
+          flex: 1,
         ),
         Image(
           image: AssetImage(image),
-          width: 180,
+          width: 230,
         ),
       ],
     );

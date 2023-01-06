@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:depression_prediction_app/widgets/next_button.dart';
 import 'package:depression_prediction_app/widgets/option_card.dart';
 import 'package:depression_prediction_app/widgets/result_box.dart';
