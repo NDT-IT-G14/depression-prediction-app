@@ -5,6 +5,10 @@ import 'package:depression_prediction_app/routes.dart';
 import 'package:depression_prediction_app/screens/welcome_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'home_screen.dart';
+// import 'screens/home/home_screen.dart';
+import 'screens/quiz/quiz_screen.dart';
+import 'screens/onbording/onbording_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -44,14 +48,15 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.teal,
         primaryColor: kPrimaryColor,
         scaffoldBackgroundColor: Colors.white,
-        textTheme: TextTheme(
-          bodyText1: TextStyle(color: kTextColor),
-          bodyText2: TextStyle(color: kTextColor),
-        ),
+        textTheme: Theme.of(context).textTheme.apply(displayColor: kTextColor),
+        // TextTheme(
+        //   bodyText1: TextStyle(color: kTextColor),
+        //   bodyText2: TextStyle(color: kTextColor),
+        // ),
       ),
-      // home: QuizScreen(),
-      initialRoute: WelcomeScreen.routeName,
-      routes: routes,
+      home: HomeScreen(),
+      // initialRoute: WelcomeScreen.routeName,
+      // routes: routes,
     );
   }
 }

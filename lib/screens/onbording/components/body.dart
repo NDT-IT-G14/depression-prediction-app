@@ -4,7 +4,7 @@ import 'package:depression_prediction_app/constants.dart';
 import 'package:flutter/material.dart';
 import '../../../components/rounded_button.dart';
 import '../../sign_up/sign_up_screen.dart';
-import '../components/splash_content.dart';
+import 'onbording_content.dart';
 
 class Body extends StatefulWidget {
   const Body({Key? key}) : super(key: key);

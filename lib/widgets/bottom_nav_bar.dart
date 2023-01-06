@@ -1,30 +1,16 @@
 import 'package:flutter/material.dart';
+import '../constants.dart';
+import '../home.dart';
 
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({super.key});
 
   @override
-  State<BottomNavBar> createState() => _MyStatefulWidgetState();
+  State<BottomNavBar> createState() => _BottomNavBarState();
 }
 
-class _MyStatefulWidgetState extends State<BottomNavBar> {
+class _BottomNavBarState extends State<BottomNavBar> {
   int _selectedIndex = 0;
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Index 0: Home',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 1: Business',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 2: School',
-      style: optionStyle,
-    ),
-  ];
 
   void _onItemTapped(int index) {
     setState(() {
@@ -35,8 +21,9 @@ class _MyStatefulWidgetState extends State<BottomNavBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // ignore: prefer_const_constructors
       body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
+        child: const HomeScreen(),
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
@@ -45,16 +32,21 @@ class _MyStatefulWidgetState extends State<BottomNavBar> {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.business),
-            label: 'Business',
+            icon: Icon(Icons.emergency_rounded),
+            label: 'Emergancy',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.school),
-            label: 'Profile',
+            icon: Icon(Icons.notifications),
+            label: 'Notification',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: 'Settings',
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
+        selectedItemColor: Color.fromARGB(255, 147, 114, 97),
+        unselectedItemColor: kBlackColor,
         onTap: _onItemTapped,
       ),
     );

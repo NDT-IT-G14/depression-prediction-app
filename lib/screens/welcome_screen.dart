@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import '../components/rounded_button.dart';
-import 'splash/splash_screen.dart';
+import 'onbording/onbording_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
   static const routeName = "/welcome_screen";
@@ -37,7 +37,7 @@ class WelcomeScreen extends StatelessWidget {
           RoundedButton(
             text: "Continue",
             press: () {
-              Navigator.of(context).pushNamed(SplashScreen.routeName);
+              Navigator.of(context).pushNamed(OnBordingScreen.routeName);
             },
           ),
         ],

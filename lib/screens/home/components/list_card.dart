@@ -18,7 +18,6 @@ class ListCard extends StatelessWidget {
     return Column(
       children: [
         Container(
-          margin: const EdgeInsets.symmetric(horizontal: 20),
           height: 200,
           width: 150,
           child: Stack(

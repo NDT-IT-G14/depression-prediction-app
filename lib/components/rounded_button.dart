@@ -20,7 +20,7 @@ class RoundedButton extends StatelessWidget {
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
             backgroundColor: kPrimaryColor,
-            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
+            padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 40),
           ),
           onPressed: press,
           child: Text(
