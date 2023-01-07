@@ -6,8 +6,8 @@ import 'package:depression_prediction_app/screens/severices/severice_screen.dart
 import 'package:flutter/material.dart';
 import '../../constants.dart';
 import '../../widgets/category_card.dart';
-import '../../widgets/nav_bar.dart';
 import '../../widgets/search_bar.dart';
+import 'components/my_drawer_header.dart';
 
 class HomeScreen extends StatelessWidget {
   static const routeName = "/home_screen";
@@ -17,11 +17,19 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      // bottomNavigationBar: const NavBar(),
+      appBar: AppBar(
+        backgroundColor: kPrimaryLightColor,
+        shadowColor: kPrimaryLightColor,
+      ),
+      drawer: const Drawer(
+        child: SingleChildScrollView(
+          child: MyHeaderDrawer(),
+        ),
+      ),
       body: Stack(
         children: [
           Container(
-            height: size.height * .40,
+            height: size.height * .30,
             decoration: const BoxDecoration(
               color: kPrimaryLightColor,
               image: DecorationImage(
@@ -38,13 +46,13 @@ class HomeScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const SizedBox(
-                    height: 30,
+                    height: 10,
                   ),
                   const Text(
                     "Check Your Mental Health\nWithout Going Anyware",
                     style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
                   ),
-                  const SizedBox(height: 40),
+                  const SizedBox(height: 30),
                   ElevatedButton(
                     onPressed: () {
                       Navigator.of(context).pushNamed(QuizScreen.routeName);
@@ -59,7 +67,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                     child: const Text('Start quiz'),
                   ),
-                  const SizedBox(height: 35),
+                  const SizedBox(height: 20),
                   const SearchBar(),
                   Expanded(
                     child: GridView.count(

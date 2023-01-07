@@ -15,6 +15,7 @@ class _ProfileState extends State<Body> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
+        padding: EdgeInsets.symmetric(vertical: 20),
         child: Column(
           children: [
             //for circle avtar image
@@ -22,7 +23,7 @@ class _ProfileState extends State<Body> {
             const SizedBox(
               height: 10,
             ),
-            _profileName("Ayodya Nirmani"),
+            _profileName("Lahiru Munasinghe"),
             const SizedBox(
               height: 14,
             ),
@@ -53,17 +54,16 @@ class _ProfileState extends State<Body> {
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: Container(
-            height: 100,
-            width: 100,
+            height: 80,
+            width: 80,
             decoration: const BoxDecoration(
-                //borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                shape: BoxShape.circle,
-                image: DecorationImage(
-                    fit: BoxFit.fill,
-                    image: NetworkImage(
-                        "https://media-exp1.licdn.com/dms/image/C4E03AQGxCeyESadtLQ/profile-displayphoto-shrink_800_800/0/1621147423282?e=2147483647&v=beta&t=KSNL9i22RyDTDjHDhbPRcwLuHbTLduhNkcEvWJqp3Yo"))
-                // color: Colors.orange[100],
-                ),
+              shape: BoxShape.circle,
+              image: DecorationImage(
+                fit: BoxFit.fill,
+                image: AssetImage('assets/images/profile.jpg'),
+              ),
+              // color: Colors.orange[100],
+            ),
           ),
         ),
       ],
@@ -103,7 +103,7 @@ class _ProfileState extends State<Body> {
             //row for each deatails
             ListTile(
               leading: Icon(Icons.email),
-              title: Text("ayodya@gmail.com"),
+              title: Text("lahiru.sl24@gmail.com"),
             ),
             Divider(
               height: 0.6,
@@ -111,7 +111,7 @@ class _ProfileState extends State<Body> {
             ),
             ListTile(
               leading: Icon(Icons.phone),
-              title: Text("0723456547"),
+              title: Text("0773558851"),
             ),
             Divider(
               height: 0.6,
@@ -119,7 +119,7 @@ class _ProfileState extends State<Body> {
             ),
             ListTile(
               leading: Icon(Icons.location_on),
-              title: Text("Kurunagala"),
+              title: Text("Kegalle"),
             )
           ],
         ),
