@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
+import 'package:get/state_manager.dart';
 
 import '../../../constants.dart';
 import '../../../widgets/search_bar.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Body extends StatelessWidget {
   const Body({Key? key}) : super(key: key);
@@ -17,7 +20,7 @@ class Body extends StatelessWidget {
           Container(
             height: size.height * .45,
             decoration: const BoxDecoration(
-              color: kBlueLightColor,
+              color: kRedLightColor,
               image: DecorationImage(
                 image: AssetImage("assets/images/music.png"),
                 fit: BoxFit.fitWidth,
@@ -55,6 +58,7 @@ class Body extends StatelessWidget {
                       image: 'assets/icons/music.svg',
                       text: 'Song 1',
                       subtext: "Opportunities don't happen, you create them",
+                      
                     ),
                     const QuoteCard(
                       image: 'assets/icons/music.svg',
