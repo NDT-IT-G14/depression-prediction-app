@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../../widgets/search_bar.dart';
-import '../quotes/components/body.dart';
 import '../quotes/components/quote_card.dart';
 
 class SevericeScreen extends StatelessWidget {

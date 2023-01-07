@@ -1,7 +1,6 @@
 import 'package:depression_prediction_app/screens/profile/profile_screen.dart';
 import 'package:flutter/material.dart';
 
-import '../constants.dart';
 import '../screens/Emergancy/emergancy_screen.dart';
 import '../screens/Notification/notifi_screen.dart';
 import '../screens/home/home_screen.dart';

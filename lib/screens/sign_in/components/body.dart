@@ -1,6 +1,5 @@
 // ignore_for_file: prefer_const_constructors, must_be_immutable, non_constant_identifier_names
 
-import 'package:depression_prediction_app/screens/home/home_screen.dart';
 import 'package:depression_prediction_app/widgets/nav_bar.dart';
 import 'package:flutter/material.dart';
 import '../../../components/already_have_an_account_check.dart';
@@ -8,7 +7,6 @@ import '../../../components/login_option.dart';
 import '../../../components/rounded_button.dart';
 import '../../../components/rounded_input_field.dart';
 import '../../../components/rounded_password_field.dart';
-import '../../../components/social_icon.dart';
 import '../../../constants.dart';
 import '../../sign_up/components/or_divider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
