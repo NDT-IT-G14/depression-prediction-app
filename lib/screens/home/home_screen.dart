@@ -2,6 +2,7 @@ import 'package:depression_prediction_app/screens/feedback/feedback_screen.dart'
 import 'package:depression_prediction_app/screens/music/music_screen.dart';
 import 'package:depression_prediction_app/screens/quiz/quiz_screen.dart';
 import 'package:depression_prediction_app/screens/quotes/quote_screen.dart';
+import 'package:depression_prediction_app/screens/severices/severice_screen.dart';
 import 'package:flutter/material.dart';
 import '../../constants.dart';
 import '../../widgets/category_card.dart';
@@ -86,7 +87,10 @@ class HomeScreen extends StatelessWidget {
                         CategoryCard(
                           title: "Our 24/7 Severices",
                           svgSrc: "assets/icons/Meditation.svg",
-                          press: () {},
+                          press: () {
+                            Navigator.of(context)
+                                .pushNamed(SevericeScreen.routeName);
+                          },
                         ),
                         CategoryCard(
                           title: "Our Feedbacks",

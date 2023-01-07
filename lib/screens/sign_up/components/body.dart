@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, avoid_print, non_constant_identifier_names, must_be_immutable
 
+import 'package:depression_prediction_app/components/login_option.dart';
 import 'package:depression_prediction_app/screens/sign_in/sign_in_screen.dart';
 import 'package:flutter/material.dart';
 import '../../../components/already_have_an_account_check.dart';
@@ -79,23 +80,10 @@ class Body extends StatelessWidget {
           },
         ),
         OrDivider(),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SocalIcon(
-              iconSrc: "assets/icons/Icon awesome-google.svg",
-              press: () {},
-            ),
-            SocalIcon(
-              iconSrc: "assets/icons/Icon awesome-facebook-f.svg",
-              press: () {},
-            ),
-            SocalIcon(
-              iconSrc: "assets/icons/Icon awesome-apple.svg",
-              press: () {},
-            ),
-          ],
-        )
+        SizedBox(
+          height: 10,
+        ),
+        LoginOption(),
       ],
     );
   }
