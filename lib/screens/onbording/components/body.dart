@@ -1,9 +1,8 @@
 // ignore_for_file: prefer_const_constructors
-
-import 'package:depression_prediction_app/constants.dart';
+import 'package:depression_prediction_app/screens/sign_up/sign_up_screen.dart';
 import 'package:flutter/material.dart';
-import '../../../components/rounded_button.dart';
-import '../../sign_up/sign_up_screen.dart';
+
+import '../../../constants.dart';
 import 'onbording_content.dart';
 
 class Body extends StatefulWidget {
@@ -15,7 +14,9 @@ class Body extends StatefulWidget {
 
 class _BodyState extends State<Body> {
   int currentPage = 0;
-  List<Map<String, String>> splashData = [
+  late PageController _controller;
+
+  List<Map<String, String>> onbordingData = [
     {
       "text": "Detect Depression through \na Machine Learning",
       "image": "assets/images/splash_1.png"
@@ -29,53 +30,92 @@ class _BodyState extends State<Body> {
       "image": "assets/images/splash_3.png"
     },
   ];
+
+  @override
+  void initState() {
+    _controller = PageController(initialPage: 0);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: SizedBox(
-        width: double.infinity,
-        child: Column(
-          // ignore: prefer_const_literals_to_create_immutables
-          children: [
-            Expanded(
-              flex: 3,
-              child: PageView.builder(
-                onPageChanged: (value) {
-                  setState(() {
-                    currentPage = value;
-                  });
-                },
-                itemCount: splashData.length,
-                itemBuilder: (context, index) => SplashContent(
-                  text: splashData[index]['text'].toString(),
-                  image: splashData[index]['image'].toString(),
+    Size size = MediaQuery.of(context).size;
+    return Scaffold(
+      body: SafeArea(
+        child: SizedBox(
+          width: double.infinity,
+          child: Column(
+            // ignore: prefer_const_literals_to_create_immutables
+            children: [
+              Expanded(
+                flex: 3,
+                child: PageView.builder(
+                  controller: _controller,
+                  onPageChanged: (value) {
+                    setState(() {
+                      currentPage = value;
+                    });
+                  },
+                  itemCount: onbordingData.length,
+                  itemBuilder: (context, index) => OnbordingContent(
+                    text: onbordingData[index]['text'].toString(),
+                    image: onbordingData[index]['image'].toString(),
+                  ),
                 ),
               ),
-            ),
-            Expanded(
-              flex: 2,
-              child: Column(
-                children: [
-                  Spacer(),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: List.generate(
-                      splashData.length,
-                      (index) => buildDot(index: index),
+              Expanded(
+                flex: 2,
+                child: Column(
+                  children: [
+                    Spacer(),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: List.generate(
+                        onbordingData.length,
+                        (index) => buildDot(index: index),
+                      ),
                     ),
-                  ),
-                  Spacer(),
-                  RoundedButton(
-                    text: "Continue",
-                    press: () {
-                      Navigator.of(context).pushNamed(SignUpScreen.routeName);
-                    },
-                  ),
-                  Spacer(),
-                ],
+                    Spacer(),
+                    SizedBox(
+                      width: size.width * 0.8,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(29),
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: kPrimaryColor,
+                            padding: const EdgeInsets.symmetric(
+                                vertical: 15, horizontal: 30),
+                          ),
+                          onPressed: () {
+                            if (currentPage == onbordingData.length - 1) {
+                              Navigator.of(context)
+                                  .pushNamed(SignUpScreen.routeName);
+                            }
+                            _controller.nextPage(
+                                duration: Duration(milliseconds: 100),
+                                curve: Curves.bounceIn);
+                          },
+                          child: Text(
+                            currentPage == onbordingData.length - 1
+                                ? "Continue"
+                                : "Next",
+                            style: const TextStyle(fontSize: 15),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Spacer(),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

@@ -1,10 +1,9 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import '../../../constants.dart';
 
-class SplashContent extends StatelessWidget {
-  const SplashContent({
+class OnbordingContent extends StatelessWidget {
+  const OnbordingContent({
     Key? key,
     required this.text,
     required this.image,
@@ -16,18 +15,20 @@ class SplashContent extends StatelessWidget {
     return Column(
       // ignore: prefer_const_literals_to_create_immutables
       children: [
-        Spacer(),
-        Text(
-          text,
-          textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 18),
-        ),
         Spacer(
-          flex: 1,
+          flex: 5,
         ),
         Image(
           image: AssetImage(image),
-          width: 230,
+          width: 250,
+        ),
+        Spacer(
+          flex: 2,
+        ),
+        Text(
+          text,
+          textAlign: TextAlign.center,
+          style: TextStyle(fontSize: 16),
         ),
       ],
     );
