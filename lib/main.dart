@@ -3,7 +3,6 @@
 import 'package:depression_prediction_app/constants.dart';
 import 'package:depression_prediction_app/routes.dart';
 import 'package:depression_prediction_app/screens/welcome_screen.dart';
-import 'package:depression_prediction_app/widgets/bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
 // import 'package:firebase_core/firebase_core.dart';
 
@@ -48,7 +47,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.white,
         textTheme: Theme.of(context).textTheme.apply(displayColor: kTextColor),
       ),
-      // home: BottomNavBar(),
+      // home: HomeScreen(),
       initialRoute: WelcomeScreen.routeName,
       routes: routes,
     );

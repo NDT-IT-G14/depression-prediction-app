@@ -1,23 +1,22 @@
 import 'package:flutter/material.dart';
+import '../../widgets/search_bar.dart';
+import '../quotes/components/quote_card.dart';
 
-import '../../../constants.dart';
-import '../../../widgets/search_bar.dart';
-import 'quote_card.dart';
-
-class Body extends StatelessWidget {
-  const Body({super.key});
+class SevericeScreen extends StatelessWidget {
+  static const routeName = "/severice_screen";
+  const SevericeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      // bottomNavigationBar: const BottomNavBar(),
+      // bottomNavigationBar: const NavBar(),
       body: Stack(
         children: <Widget>[
           Container(
             height: size.height * .45,
             decoration: const BoxDecoration(
-              color: kBlueLightColor,
+              color: Colors.amberAccent,
               image: DecorationImage(
                 image: AssetImage("assets/images/meditation_bg.png"),
                 fit: BoxFit.fitWidth,
@@ -35,7 +34,7 @@ class Body extends StatelessWidget {
                       height: size.height * 0.05,
                     ),
                     const Text(
-                      "Daily Quotes",
+                      "24/7 Severices",
                       style:
                           TextStyle(fontWeight: FontWeight.w700, fontSize: 32),
                     ),
@@ -53,26 +52,23 @@ class Body extends StatelessWidget {
                     ),
                     const QuoteCard(
                       image: 'assets/icons/Meditation_women_small.svg',
-                      text: 'Day 1',
-                      subtext: "Opportunities don't happen, you create them",
+                      text: 'Doctor name',
+                      subtext: "Hospital details",
                     ),
                     const QuoteCard(
                       image: 'assets/icons/Meditation_women_small.svg',
-                      text: 'Day 2',
-                      subtext:
-                          "Just one small positive thought in the morning can change your whole day",
+                      text: 'Doctor name',
+                      subtext: "Hospital details",
                     ),
                     const QuoteCard(
                       image: 'assets/icons/Meditation_women_small.svg',
-                      text: 'Day 3',
-                      subtext:
-                          "Love your family, work super hard, live your passion",
+                      text: 'Doctor name',
+                      subtext: "Hospital details",
                     ),
                     const QuoteCard(
                       image: 'assets/icons/Meditation_women_small.svg',
-                      text: 'Day 4',
-                      subtext:
-                          "It is never too late to be what you might have been",
+                      text: 'Doctor name',
+                      subtext: "Hospital details",
                     ),
                   ],
                 ),
@@ -84,5 +80,3 @@ class Body extends StatelessWidget {
     );
   }
 }
-
-
