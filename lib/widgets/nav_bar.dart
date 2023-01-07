@@ -16,17 +16,18 @@ class NavBar extends StatefulWidget {
 
 class _NavBarState extends State<NavBar> {
   int currentPageIndex = 0;
-  // final screens = [
-  //   const HomeScreen(),
-  //   const EmergancyScreen(),
-  //   const NotificationScreen(),
-  //   const ProfileScreen(),
-  // ];
+  final screens = [
+    const HomeScreen(),
+    const EmergancyScreen(),
+    const NotificationScreen(),
+    const ProfileScreen(),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       // backgroundColor: Colors.transparent,
       bottomNavigationBar: NavigationBar(
+        height: 60,
         onDestinationSelected: (int index) {
           setState(() {
             currentPageIndex = index;
@@ -47,12 +48,12 @@ class _NavBarState extends State<NavBar> {
             label: "Notification",
           ),
           NavigationDestination(
-            icon: Icon(Icons.supervised_user_circle_rounded),
+            icon: Icon(Icons.account_circle),
             label: "My Profile",
           )
         ],
       ),
-      // body: screens[currentPageIndex],
+      body: screens[currentPageIndex],
     );
   }
 }

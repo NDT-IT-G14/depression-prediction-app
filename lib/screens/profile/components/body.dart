@@ -14,35 +14,35 @@ class _ProfileState extends State<Body> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-          child: Column(
-        children: [
-          //for circle avtar image
-          _getHeader(),
-          const SizedBox(
-            height: 10,
-          ),
-          _profileName("Ayodya Nirmani"),
-          const SizedBox(
-            height: 14,
-          ),
-          _heading("Personal Details"),
-          const SizedBox(
-            height: 6,
-          ),
-          _detailsCard(),
-          const SizedBox(
-            height: 10,
-          ),
-          _heading("Settings"),
-          const SizedBox(
-            height: 6,
-          ),
-          _settingsCard(),
-          const Spacer(),
-          updateButton()
-        ],
-      )),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            //for circle avtar image
+            _getHeader(),
+            const SizedBox(
+              height: 10,
+            ),
+            _profileName("Ayodya Nirmani"),
+            const SizedBox(
+              height: 14,
+            ),
+            _heading("Personal Details"),
+            const SizedBox(
+              height: 6,
+            ),
+            _detailsCard(),
+            const SizedBox(
+              height: 10,
+            ),
+            _heading("Settings"),
+            const SizedBox(
+              height: 6,
+            ),
+            _settingsCard(),
+            updateButton()
+          ],
+        ),
+      ),
     );
   }
 
@@ -51,7 +51,7 @@ class _ProfileState extends State<Body> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Padding(
-          padding: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(8.0),
           child: Container(
             height: 100,
             width: 100,
@@ -88,7 +88,7 @@ class _ProfileState extends State<Body> {
       width: MediaQuery.of(context).size.width * 0.80, //80% of width,
       child: Text(
         heading,
-        style: const TextStyle(fontSize: 16),
+        style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
       ),
     );
   }
@@ -137,7 +137,10 @@ class _ProfileState extends State<Body> {
             //row for each deatails
             ListTile(
               leading: Icon(Icons.settings),
-              title: Text("Settings"),
+              title: Text(
+                "Settings",
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
             ),
             Divider(
               height: 0.6,
@@ -163,6 +166,7 @@ class _ProfileState extends State<Body> {
 
   Widget updateButton() {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         InkWell(
           onTap: () {},

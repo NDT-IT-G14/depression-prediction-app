@@ -24,60 +24,65 @@ class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(
-          "Hello!",
-          style: TextStyle(
-              fontWeight: FontWeight.bold, fontSize: 24, color: kPrimaryColor),
-        ),
-        SizedBox(height: size.height * 0.03),
-        Text(
-          "Create New Account",
-          style: TextStyle(
-            fontSize: 16,
+    return SingleChildScrollView(
+      padding: EdgeInsets.symmetric(vertical: 150),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            "Hello!",
+            style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 24,
+                color: kPrimaryColor),
           ),
-        ),
-        RoundedInputField(
-          hintText: "Your Email",
-          onChanged: (value) {
-            email = value;
-          },
-        ),
-        RoundedPasswordField(
-          hintText: "Password",
-          onChanged: (value) {
-            password = value;
-          },
-        ),
-        SizedBox(height: 10),
-        RoundedButton(
-          text: "SIGN IN",
-          press: () {
-            Navigator.of(context).pushNamed(HomeScreen.routeName);
-          },
-          // press: () async {
-          //   try {
-          //     await FirebaseAuth.instance.signInWithEmailAndPassword(
-          //         email: email, password: password);
-          //     Navigator.of(context).pushNamed(HomeScreen.routeName);
-          //   } catch (e) {
-          //     print(e.toString());
-          //   }
-          // },
-        ),
-        SizedBox(height: 10),
-        AlreadyHaveAnAccountCheck(
-          login: true,
-          press: () {},
-        ),
-        OrDivider(),
-        SizedBox(
-          height: 10,
-        ),
-        LoginOption(),
-      ],
+          SizedBox(height: size.height * 0.03),
+          Text(
+            "Create New Account",
+            style: TextStyle(
+              fontSize: 16,
+            ),
+          ),
+          RoundedInputField(
+            hintText: "Your Email",
+            onChanged: (value) {
+              email = value;
+            },
+          ),
+          RoundedPasswordField(
+            hintText: "Password",
+            onChanged: (value) {
+              password = value;
+            },
+          ),
+          SizedBox(height: 10),
+          RoundedButton(
+            text: "SIGN IN",
+            press: () {
+              Navigator.of(context).pushNamed(NavBar.routeName);
+            },
+            // press: () async {
+            //   try {
+            //     await FirebaseAuth.instance.signInWithEmailAndPassword(
+            //         email: email, password: password);
+            //     Navigator.of(context).pushNamed(HomeScreen.routeName);
+            //   } catch (e) {
+            //     print(e.toString());
+            //   }
+            // },
+          ),
+          SizedBox(height: 10),
+          AlreadyHaveAnAccountCheck(
+            login: true,
+            press: () {},
+          ),
+          OrDivider(),
+          SizedBox(
+            height: 10,
+          ),
+          LoginOption(),
+        ],
+      ),
     );
   }
 

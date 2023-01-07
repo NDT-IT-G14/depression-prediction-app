@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import '../../widgets/nav_bar.dart';
 import '../../widgets/search_bar.dart';
+import '../quotes/components/body.dart';
+import '../quotes/components/quote_card.dart';
 
 class SevericeScreen extends StatelessWidget {
   static const routeName = "/severice_screen";
@@ -35,13 +36,12 @@ class SevericeScreen extends StatelessWidget {
                     ),
                     const Text(
                       "24/7 Severices",
-                      style: TextStyle(
-                          fontWeight: FontWeight.w700, fontSize: 32),
+                      style:
+                          TextStyle(fontWeight: FontWeight.w700, fontSize: 32),
                     ),
                     const SizedBox(height: 10),
                     SizedBox(
-                      width:
-                          size.width * .8, // it just take 60% of total width
+                      width: size.width * .8, // it just take 60% of total width
                       child: const Text(
                         "Live happier and healthier by learning the fundamentals of meditation and mindfulness",
                         style: TextStyle(fontSize: 15),
@@ -50,6 +50,26 @@ class SevericeScreen extends StatelessWidget {
                     SizedBox(
                       width: size.width * .5, // it just take the 50% width
                       child: const SearchBar(),
+                    ),
+                    const QuoteCard(
+                      image: 'assets/icons/Meditation_women_small.svg',
+                      text: 'Doctor name',
+                      subtext: "Hospital details",
+                    ),
+                    const QuoteCard(
+                      image: 'assets/icons/Meditation_women_small.svg',
+                      text: 'Doctor name',
+                      subtext: "Hospital details",
+                    ),
+                    const QuoteCard(
+                      image: 'assets/icons/Meditation_women_small.svg',
+                      text: 'Doctor name',
+                      subtext: "Hospital details",
+                    ),
+                    const QuoteCard(
+                      image: 'assets/icons/Meditation_women_small.svg',
+                      text: 'Doctor name',
+                      subtext: "Hospital details",
                     ),
                   ],
                 ),

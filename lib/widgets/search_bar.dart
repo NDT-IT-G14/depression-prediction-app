@@ -17,7 +17,7 @@ class SearchBar extends StatelessWidget {
           boxShadow: [
             BoxShadow(
               offset: const Offset(0, 10),
-              blurRadius: 33,
+              blurRadius: 10,
               color: kShadowColor,
             ),
           ]),

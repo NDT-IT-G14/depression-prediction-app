@@ -49,7 +49,6 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.white,
         textTheme: Theme.of(context).textTheme.apply(displayColor: kTextColor),
       ),
-      // home: NavBar(),
       // home: HomeScreen(),
       initialRoute: WelcomeScreen.routeName,
       routes: routes,
