@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'category_card.dart';
+import 'package:flutter_svg/svg.dart';
+
+import '../../../constants.dart';
+import '../../../widgets/search_bar.dart';
 
 class Body extends StatelessWidget {
   const Body({super.key});
@@ -8,94 +11,129 @@ class Body extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
+      // bottomNavigationBar: const BottomNavBar(),
       body: Stack(
         children: <Widget>[
           Container(
             height: size.height * .45,
             decoration: const BoxDecoration(
-              color: Color(0xFFF5CEB8),
+              color: kBlueLightColor,
               image: DecorationImage(
-                alignment: Alignment.centerLeft,
-                image: AssetImage('assets/images/meditation_bg.png'),
+                image: AssetImage("assets/images/meditation_bg.png"),
+                fit: BoxFit.fitWidth,
               ),
             ),
           ),
           SafeArea(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Align(
-                    alignment: Alignment.topRight,
-                    child: Container(
-                      alignment: Alignment.center,
-                      height: 52,
-                      width: 52,
-                      decoration: const BoxDecoration(
-                        color: Color(0xFFF2BEA1),
-                        shape: BoxShape.circle,
-                      ),
-                      child: Image.network(
-                          'https://www.simplilearn.com/ice9/free_resources_article_thumb/what_is_image_Processing.jpg'),
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    SizedBox(
+                      height: size.height * 0.05,
                     ),
-                  ),
-                  Text(
-                    "Hello Lahiru",
-                    style: Theme.of(context)
-                        .textTheme
-                        .displayMedium
-                        ?.copyWith(fontWeight: FontWeight.w900),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.symmetric(vertical: 30),
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 30, vertical: 5),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(29.5),
+                    const Text(
+                      "Daily Quotes",
+                      style:
+                          TextStyle(fontWeight: FontWeight.w700, fontSize: 32),
                     ),
-                    child: TextField(
-                      decoration: InputDecoration(
-                        hintText: "Search",
-                        icon: Image.asset('assets/icons/search.svg'),
-                        border: InputBorder.none,
+                    const SizedBox(height: 10),
+                    SizedBox(
+                      width: size.width * .8, // it just take 60% of total width
+                      child: const Text(
+                        "Live happier and healthier by learning the fundamentals of meditation and mindfulness",
+                        style: TextStyle(fontSize: 15),
                       ),
                     ),
-                  ),
-                  Expanded(
-                      child: GridView.count(
-                    crossAxisCount: 2,
-                    childAspectRatio: .85,
-                    crossAxisSpacing: 20,
-                    mainAxisSpacing: 20,
-                    children: <Widget>[
-                      CategoryCard(
-                        title: "Diet Plan",
-                        svgSrc: 'assets/icons/Hamburger.svg',
-                        press: () {},
-                      ),
-                      CategoryCard(
-                        title: "Exercises",
-                        svgSrc: 'assets/icons/Exercises.svg',
-                        press: () {},
-                      ),
-                      CategoryCard(
-                        title: "Meditation",
-                        svgSrc: 'assets/icons/Meditation.svg',
-                        press: () {},
-                      ),
-                      CategoryCard(
-                        title: "Yoga",
-                        svgSrc: 'assets/icons/yoga.svg',
-                        press: () {},
-                      ),
-                    ],
-                  )),
-                ],
+                    SizedBox(
+                      width: size.width * .5, // it just take the 50% width
+                      child: const SearchBar(),
+                    ),
+                    const QuoteCard(
+                      image: 'assets/icons/Meditation_women_small.svg',
+                      text: 'Day 1',
+                      subtext: "Opportunities don't happen, you create them",
+                    ),
+                    const QuoteCard(
+                      image: 'assets/icons/Meditation_women_small.svg',
+                      text: 'Day 2',
+                      subtext:
+                          "Just one small positive thought in the morning can change your whole day",
+                    ),
+                    const QuoteCard(
+                      image: 'assets/icons/Meditation_women_small.svg',
+                      text: 'Day 3',
+                      subtext:
+                          "Love your family, work super hard, live your passion",
+                    ),
+                    const QuoteCard(
+                      image: 'assets/icons/Meditation_women_small.svg',
+                      text: 'Day 4',
+                      subtext:
+                          "It is never too late to be what you might have been",
+                    ),
+                  ],
+                ),
               ),
             ),
-          )
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class QuoteCard extends StatelessWidget {
+  const QuoteCard({
+    Key? key,
+    required this.text,
+    required this.subtext,
+    required this.image,
+  }) : super(key: key);
+
+  final String text, subtext, image;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.symmetric(vertical: 20),
+      padding: const EdgeInsets.all(10),
+      height: 90,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(13),
+        boxShadow: [
+          BoxShadow(
+            offset: const Offset(0, 17),
+            blurRadius: 23,
+            spreadRadius: -13,
+            color: kShadowColor,
+          ),
+        ],
+      ),
+      child: Row(
+        children: <Widget>[
+          SvgPicture.asset(
+            image,
+          ),
+          const SizedBox(width: 20),
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              // ignore: prefer_const_literals_to_create_immutables
+              children: <Widget>[
+                Text(
+                  text,
+                  style: const TextStyle(
+                      fontSize: 16, fontWeight: FontWeight.bold),
+                ),
+                Text(subtext),
+              ],
+            ),
+          ),
         ],
       ),
     );
