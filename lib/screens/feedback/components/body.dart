@@ -39,76 +39,101 @@ class _BodyState extends State<Body> {
   ];
 
   Widget commentChild(data) {
-    return ListView(
-      children: [
-        for (var i = 0; i < data.length; i++)
-          Padding(
-            padding: const EdgeInsets.fromLTRB(2.0, 8.0, 2.0, 0.0),
-            child: ListTile(
-              leading: GestureDetector(
-                onTap: () async {
-                  // Display the image in large form.
-                  print("Comment Clicked");
-                },
-                child: Container(
-                  height: 50.0,
-                  width: 50.0,
-                  decoration: const BoxDecoration(
-                      color: Colors.blue,
-                      borderRadius: BorderRadius.all(Radius.circular(50))),
-                  child: CircleAvatar(
-                      radius: 50,
-                      backgroundImage: NetworkImage(data[i]['pic'] + "$i")),
+    return SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+        child: ListView(
+          children: [
+            for (var i = 0; i < data.length; i++)
+              Padding(
+                padding: const EdgeInsets.fromLTRB(2.0, 8.0, 2.0, 0.0),
+                child: ListTile(
+                  leading: GestureDetector(
+                    onTap: () async {
+                      // Display the image in large form.
+                      print("Comment Clicked");
+                    },
+                    child: Container(
+                      height: 50.0,
+                      width: 50.0,
+                      decoration: const BoxDecoration(
+                          // image: AssetImage("assets/images/feedback.png"),
+                          // color: Colors.blue,
+                          borderRadius: BorderRadius.all(Radius.circular(50))),
+                      child: CircleAvatar(
+                          radius: 50,
+                          backgroundImage: NetworkImage(data[i]['pic'] + "$i")),
+                    ),
+                  ),
+                  title: Text(
+                    data[i]['name'],
+                    style: const TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  subtitle: Text(data[i]['message']),
                 ),
-              ),
-              title: Text(
-                data[i]['name'],
-                style: const TextStyle(fontWeight: FontWeight.bold),
-              ),
-              subtitle: Text(data[i]['message']),
-            ),
-          )
-      ],
+              )
+          ],
+        ),
+      ),
     );
   }
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Quakka Feedback"),
-        backgroundColor: kPrimaryColor,
-      ),
-      body: CommentBox(
-        // userImage:
-        //     "https://lh3.googleusercontent.com/a-/AOh14GjRHcaendrf6gU5fPIVd8GIl1OgblrMMvGUoCBj4g=s400",
-        labelText: 'Write a comment...',
-        withBorder: false,
-        errorText: 'Comment cannot be blank',
-        sendButtonMethod: () {
-          if (formKey.currentState!.validate()) {
-            print(commentController.text);
-            setState(() {
-              var value = {
-                'name': 'New User',
-                'pic':
-                    'https://lh3.googleusercontent.com/a-/AOh14GjRHcaendrf6gU5fPIVd8GIl1OgblrMMvGUoCBj4g=s400',
-                'message': commentController.text
-              };
-              filedata.insert(0, value);
-            });
-            commentController.clear();
-            FocusScope.of(context).unfocus();
-          } else {
-            print("Not validated");
-          }
-        },
-        formKey: formKey,
-        commentController: commentController,
-        backgroundColor: Colors.black,
-        textColor: Colors.white,
-        sendWidget: const Icon(Icons.send_sharp, size: 30, color: Colors.white),
-        child: commentChild(filedata),
+          toolbarHeight: 120,
+          backgroundColor: Color(0xffff8b94),
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+            // bottomRight: Radius.circular(40),
+            bottomRight: Radius.elliptical(100, 10),
+            bottomLeft: Radius.elliptical(100, 10),
+          ))),
+      body: Stack(
+        children: [
+          Container(
+            height: size.height * 1.0,
+            decoration: const BoxDecoration(
+              color: Color(0xffffd3b6),
+              image: DecorationImage(
+                image: AssetImage("assets/images/feedback.png"),
+                fit: BoxFit.fitWidth,
+              ),
+            ),
+          ),
+          CommentBox(
+            userImage: const AssetImage("assets/images/feebbacklogo.png"),
+            labelText: 'Write a Feedback..',
+            withBorder: false,
+            errorText: 'Feedback cannot be blank',
+            sendButtonMethod: () {
+              if (formKey.currentState!.validate()) {
+                print(commentController.text);
+                setState(() {
+                  var value = {
+                    'name': 'New User',
+                    'pic': 'https://icons8.com/icon/EIh9SZxRTpHl/man-beard',
+                    'message': commentController.text
+                  };
+                  filedata.insert(0, value);
+                });
+                commentController.clear();
+                FocusScope.of(context).unfocus();
+              } else {
+                print("Not validated");
+              }
+            },
+            formKey: formKey,
+            commentController: commentController,
+            backgroundColor: Colors.white,
+            textColor: Color.fromARGB(255, 15, 15, 15),
+            sendWidget: const Icon(Icons.send_sharp,
+                size: 30, color: Color.fromARGB(255, 19, 18, 18)),
+            child: commentChild(filedata),
+          ),
+        ],
       ),
     );
   }
