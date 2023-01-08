@@ -1,5 +1,7 @@
 // ignore_for_file: deprecated_member_use
 
+import 'dart:html';
+
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -16,8 +18,6 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var defaultText = const TextStyle(color: Colors.black);
-    var linkText = TextStyle(color: Colors.red.shade600);
     var size = MediaQuery.of(context).size;
     return Scaffold(
       // bottomNavigationBar: const BottomNavBar(),
@@ -60,92 +60,17 @@ class Body extends StatelessWidget {
                       width: size.width * .5, // it just take the 50% width
                       child: const SearchBar(),
                     ),
-                    QuoteCard(
+                    MusicCard(
                       image: 'assets/icons/music.svg',
-                      text: RichText(
-                          text: TextSpan(children: [
-                        TextSpan(
-                            style: defaultText, text: "For meditation music"),
-                        TextSpan(
-                            style: linkText,
-                            text: "Click here",
-                            recognizer: TapGestureRecognizer()
-                              ..onTap = () async {
-                                var url = "https://youtu.be/urnrIW-eaX4";
-                                if (await canLaunch(url)) {
-                                  await launch(url);
-                                } else {
-                                  throw "Cannot load Url";
-                                }
-                              })
-                      ])),
                       subtext: "Opportunities don't happen, you create them",
+                      songtext: "For meditation music",
+                      songurl: "https://youtu.be/urnrIW-eaX4",
                     ),
-                    QuoteCard(
+                    MusicCard(
                       image: 'assets/icons/music.svg',
-                      text: RichText(
-                          text: TextSpan(children: [
-                        TextSpan(
-                            style: defaultText, text: "For meditation music"),
-                        TextSpan(
-                            style: linkText,
-                            text: "Click here",
-                            recognizer: TapGestureRecognizer()
-                              ..onTap = () async {
-                                var url = "https://youtu.be/urnrIW-eaX4";
-                                if (await canLaunch(url)) {
-                                  await launch(url);
-                                } else {
-                                  throw "Cannot load Url";
-                                }
-                              })
-                      ])),
-                      subtext:
-                          "Just one small positive thought in the morning can change your whole day",
-                    ),
-                    QuoteCard(
-                      image: 'assets/icons/music.svg',
-                      text: RichText(
-                          text: TextSpan(children: [
-                        TextSpan(
-                            style: defaultText, text: "For meditation music"),
-                        TextSpan(
-                            style: linkText,
-                            text: "Click here",
-                            recognizer: TapGestureRecognizer()
-                              ..onTap = () async {
-                                var url = "https://youtu.be/urnrIW-eaX4";
-                                if (await canLaunch(url)) {
-                                  await launch(url);
-                                } else {
-                                  throw "Cannot load Url";
-                                }
-                              })
-                      ])),
-                      subtext:
-                          "Love your family, work super hard, live your passion",
-                    ),
-                    QuoteCard(
-                      image: 'assets/icons/music.svg',
-                      text: RichText(
-                          text: TextSpan(children: [
-                        TextSpan(
-                            style: defaultText, text: "For meditation music"),
-                        TextSpan(
-                            style: linkText,
-                            text: "Click here",
-                            recognizer: TapGestureRecognizer()
-                              ..onTap = () async {
-                                var url = "https://youtu.be/urnrIW-eaX4";
-                                if (await canLaunch(url)) {
-                                  await launch(url);
-                                } else {
-                                  throw "Cannot load Url";
-                                }
-                              })
-                      ])),
-                      subtext:
-                          "It is never too late to be what you might have been",
+                      subtext: "Opportunities don't happen, you create them",
+                      songtext: "For meditation music",
+                      songurl: "https://youtu.be/urnrIW-eaX4",
                     ),
                   ],
                 ),
@@ -158,22 +83,24 @@ class Body extends StatelessWidget {
   }
 }
 
-class QuoteCard extends StatelessWidget {
+class MusicCard extends StatelessWidget {
   final String image;
-  final RichText text;
   final String subtext;
+  final String songtext;
+  final String songurl;
 
-  const QuoteCard({
+  const MusicCard({
     Key? key,
-    required this.text,
     required this.subtext,
     required this.image,
+    required this.songtext,
+    required this.songurl,
   }) : super(key: key);
-
-  // final String text, subtext, image;
 
   @override
   Widget build(BuildContext context) {
+    var defaultText = const TextStyle(color: Colors.black);
+    var linkText = TextStyle(color: Colors.red.shade600);
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 20),
       padding: const EdgeInsets.all(10),
@@ -202,11 +129,22 @@ class QuoteCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               // ignore: prefer_const_literals_to_create_immutables
               children: <Widget>[
-                Text(
-                  subtext,
-                  style: const TextStyle(
-                      fontSize: 16, fontWeight: FontWeight.bold),
-                ),
+                RichText(
+                    text: TextSpan(children: [
+                  TextSpan(style: defaultText, text: songtext),
+                  TextSpan(
+                      style: linkText,
+                      text: "Click here",
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () async {
+                          var url = songurl;
+                          if (await canLaunch(url)) {
+                            await launch(url);
+                          } else {
+                            throw "Cannot load Url";
+                          }
+                        })
+                ])),
                 Text(subtext),
               ],
             ),
