@@ -107,7 +107,7 @@ class _BodyState extends State<Body> {
             userImage: const AssetImage("assets/images/feebbacklogo.png"),
             labelText: 'Write a Feedback..',
             withBorder: false,
-            errorText: 'Comment cannot be blank',
+            errorText: 'Feedback cannot be blank',
             sendButtonMethod: () {
               if (formKey.currentState!.validate()) {
                 print(commentController.text);
