@@ -23,6 +23,7 @@ const double kDefaultPadding = 20.0;
 const kBackgroundColor = Color(0xFFF8F8F8);
 const kActiveIconColor = Color(0xFFE68342);
 const kBlueLightColor = Color(0xFFC7B8F5);
+// const kfeedbackColor=Color(0xff011f4b)
 const kBlueColor = Color(0xFF817DC0);
 
 const kTextColor = Color(0xFF222B45);
