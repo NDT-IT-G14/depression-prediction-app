@@ -1,12 +1,9 @@
 // ignore_for_file: deprecated_member_use
 
-import 'dart:html';
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart';
-import 'package:get/state_manager.dart';
 
 import '../../../constants.dart';
 import '../../../widgets/search_bar.dart';
@@ -60,13 +57,13 @@ class Body extends StatelessWidget {
                       width: size.width * .5, // it just take the 50% width
                       child: const SearchBar(),
                     ),
-                    MusicCard(
+                    const MusicCard(
                       image: 'assets/icons/music.svg',
                       subtext: "Opportunities don't happen, you create them",
                       songtext: "For meditation music",
                       songurl: "https://youtu.be/urnrIW-eaX4",
                     ),
-                    MusicCard(
+                    const MusicCard(
                       image: 'assets/icons/music.svg',
                       subtext: "Opportunities don't happen, you create them",
                       songtext: "For meditation music",
@@ -137,9 +134,8 @@ class MusicCard extends StatelessWidget {
                       text: "Click here",
                       recognizer: TapGestureRecognizer()
                         ..onTap = () async {
-                          var url = songurl;
-                          if (await canLaunch(url)) {
-                            await launch(url);
+                          if (await canLaunch(songurl)) {
+                            await launch(songurl);
                           } else {
                             throw "Cannot load Url";
                           }
