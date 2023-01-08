@@ -4,6 +4,8 @@ import 'package:depression_prediction_app/constants.dart';
 import 'package:depression_prediction_app/routes.dart';
 import 'package:depression_prediction_app/screens/welcome_screen.dart';
 import 'package:flutter/material.dart';
+
+import 'screens/music/music_screen.dart';
 // import 'package:firebase_core/firebase_core.dart';
 
 Future<void> main() async {
@@ -47,7 +49,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.white,
         textTheme: Theme.of(context).textTheme.apply(displayColor: kTextColor),
       ),
-      // home: HomeScreen(),
+      // home: MusicScreen(),
       initialRoute: WelcomeScreen.routeName,
       routes: routes,
     );
