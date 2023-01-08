@@ -25,6 +25,7 @@ const kActiveIconColor = Color(0xFFE68342);
 const kBlueLightColor = Color(0xFFC7B8F5);
 // const kfeedbackColor=Color(0xff011f4b)
 const kBlueColor = Color(0xFF817DC0);
+const kRedLightColor = Color(0xFFEF9A9A);
 
 const kTextColor = Color(0xFF222B45);
 const kShadowLightColor = Color(0xFFE6E6E6);
