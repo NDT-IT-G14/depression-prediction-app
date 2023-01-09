@@ -1,6 +1,5 @@
 // ignore_for_file: deprecated_member_use
 
-
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -49,7 +48,7 @@ class Body extends StatelessWidget {
                     SizedBox(
                       width: size.width * .8, // it just take 60% of total width
                       child: const Text(
-                        "You will always be getting praise and blame, but do not let either affect the poise of the mind.",
+                        "Relax your mind with a meditation songs.",
                         style: TextStyle(fontSize: 15),
                       ),
                     ),
@@ -59,7 +58,7 @@ class Body extends StatelessWidget {
                     ),
                     const MusicCard(
                       image: 'assets/icons/music.svg',
-                      subtext: "Opportunities don't happen, you create them",
+                      subtext: "Self-care is how you take your power back.",
                       songtext: "For meditation music",
                       songurl: "https://youtu.be/urnrIW-eaX4",
                     ),

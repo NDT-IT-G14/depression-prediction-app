@@ -43,7 +43,7 @@ class Body extends StatelessWidget {
                     SizedBox(
                       width: size.width * .8, // it just take 60% of total width
                       child: const Text(
-                        "Live happier and healthier by learning the fundamentals of meditation and mindfulness",
+                        "Mental health... is not a destination, but a process.It's about how you drive, not where you're going     (NOAM SHPANGER, PHD)",
                         style: TextStyle(fontSize: 15),
                       ),
                     ),
@@ -54,25 +54,26 @@ class Body extends StatelessWidget {
                     const QuoteCard(
                       image: 'assets/icons/Meditation_women_small.svg',
                       text: 'Day 1',
-                      subtext: "Opportunities don't happen, you create them",
+                      subtext:
+                          "You don't have to control your thoughts.You just have to stop letting them cotrol you ----Dan Millman",
                     ),
                     const QuoteCard(
                       image: 'assets/icons/Meditation_women_small.svg',
                       text: 'Day 2',
                       subtext:
-                          "Just one small positive thought in the morning can change your whole day",
+                          "Not until we are lost do we begin to understand ourselves",
                     ),
                     const QuoteCard(
                       image: 'assets/icons/Meditation_women_small.svg',
                       text: 'Day 3',
                       subtext:
-                          "Love your family, work super hard, live your passion",
+                          "Happiness can be found even in the darkest of times, if one only remembers to turn on the light.----Albus Dumbledore",
                     ),
                     const QuoteCard(
                       image: 'assets/icons/Meditation_women_small.svg',
                       text: 'Day 4',
                       subtext:
-                          "It is never too late to be what you might have been",
+                          "Just because no one else can heal or do your inner work for you doesn’t mean you can, should, or need to do it alone ----Lisa Olivera",
                     ),
                   ],
                 ),
@@ -84,5 +85,3 @@ class Body extends StatelessWidget {
     );
   }
 }
-
-
