@@ -50,7 +50,7 @@ class Body extends StatelessWidget {
                       width: size.width * .8, // it just take 60% of total width
                       child: const Text(
                         "You will always be getting praise and blame, but do not let either affect the poise of the mind.",
-                        style: TextStyle(fontSize: 15),
+                        style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold),
                       ),
                     ),
                     SizedBox(
@@ -60,37 +60,37 @@ class Body extends StatelessWidget {
                     const MusicCard(
                       image: 'assets/icons/music.svg',
                       subtext: "Opportunities don't happen, you create them",
-                      songtext: "For meditation music",
+                      songtext: "For meditation music ",
                       songurl: "https://youtu.be/_4kHxtiuML0",
                     ),
                     const MusicCard(
                       image: 'assets/icons/music.svg',
-                      subtext: "Opportunities don't happen, you create them",
-                      songtext: "For meditation music",
+                      subtext: "Success usually comes to those who are too busy looking for it.",
+                      songtext: "For meditation music ",
                       songurl: "https://youtu.be/unSRZn9jMLg",
                     ),
                     const MusicCard(
                       image: 'assets/icons/music.svg',
-                      subtext: "Opportunities don't happen, you create them",
-                      songtext: "For meditation music",
+                      subtext: "Dont let yesterday take up too much of today.",
+                      songtext: "For meditation music ",
                       songurl: "https://youtu.be/4fiWy_s8IXw",
                     ),
                     const MusicCard(
                       image: 'assets/icons/music.svg',
-                      subtext: "Opportunities don't happen, you create them",
-                      songtext: "For meditation music",
+                      subtext: "He who conquers himself is the mightiest warrior.",
+                      songtext: "For meditation music ",
                       songurl: "https://youtu.be/77ZozI0rw7w",
                     ),
                     const MusicCard(
                       image: 'assets/icons/music.svg',
-                      subtext: "Opportunities don't happen, you create them",
-                      songtext: "For meditation music",
+                      subtext: "Women must learn to play the game as men do.",
+                      songtext: "For meditation music ",
                       songurl: "https://youtu.be/8WVXk0Gz66E",
                     ),
                     const MusicCard(
                       image: 'assets/icons/music.svg',
-                      subtext: "Opportunities don't happen, you create them",
-                      songtext: "For meditation music",
+                      subtext: "One man with courage makes a majority.",
+                      songtext: "For meditation music ",
                       songurl: "https://youtu.be/FTqrQsSIKR0",
                     ),
                   ],
@@ -120,20 +120,20 @@ class MusicCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var defaultText = const TextStyle(color: Colors.black);
-    var linkText = TextStyle(color: Colors.red.shade600);
+    var defaultText = const TextStyle(color: Colors.black,fontWeight: FontWeight.bold);
+    var linkText = TextStyle(color: Colors.red.shade600,fontWeight: FontWeight.bold);
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 20),
       padding: const EdgeInsets.all(10),
       height: 90,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: const Color.fromARGB(255, 255, 223, 223),
         borderRadius: BorderRadius.circular(13),
         boxShadow: [
           BoxShadow(
             offset: const Offset(0, 17),
             blurRadius: 23,
-            spreadRadius: -13,
+            spreadRadius: -5,
             color: kShadowColor,
           ),
         ],
