@@ -8,7 +8,7 @@ class RoundedPasswordField extends StatelessWidget {
   const RoundedPasswordField({
     Key? key,
     required this.onChanged,
-    required this.hintText,
+    required this.hintText, required String? Function(dynamic value) validator,
   }) : super(key: key);
 
 // ignore_for_file: prefer_const_constructors
