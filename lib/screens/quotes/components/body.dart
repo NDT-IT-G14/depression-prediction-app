@@ -44,7 +44,7 @@ class Body extends StatelessWidget {
                       width: size.width * .8, // it just take 60% of total width
                       child: const Text(
                         "Mental health... is not a destination, but a process.It's about how you drive, not where you're going     (NOAM SHPANGER, PHD)",
-                        style: TextStyle(fontSize: 15),
+                        style: TextStyle(fontSize: 20),
                       ),
                     ),
                     SizedBox(

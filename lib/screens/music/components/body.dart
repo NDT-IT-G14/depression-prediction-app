@@ -49,7 +49,7 @@ class Body extends StatelessWidget {
                       width: size.width * .8, // it just take 60% of total width
                       child: const Text(
                         "Relax your mind with a meditation songs.",
-                        style: TextStyle(fontSize: 15),
+                        style: TextStyle(fontSize: 30),
                       ),
                     ),
                     SizedBox(
