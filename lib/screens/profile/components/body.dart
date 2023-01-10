@@ -15,7 +15,7 @@ class _ProfileState extends State<Body> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        padding: EdgeInsets.symmetric(vertical: 20),
+        padding: const EdgeInsets.symmetric(vertical: 20),
         child: Column(
           children: [
             //for circle avtar image
