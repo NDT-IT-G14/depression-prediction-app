@@ -9,17 +9,39 @@ import '../../../components/rounded_button.dart';
 import '../../../components/rounded_input_field.dart';
 import '../../../components/rounded_password_field.dart';
 import '../../../constants.dart';
+import '../../../shared.dart';
 import '../../home/home_screen.dart';
 import '../../sign_up/components/or_divider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-class Body extends StatelessWidget {
-  // final const Body({Key? key}) : super(key: key);
+class Body extends StatefulWidget {
 
+  const Body({Key? key}) : super(key: key);
+
+  @override
+  State<Body> createState() => _BodyState();
+}
+
+class _BodyState extends State<Body> {
+  // final const Body({Key? key}) : super(key: key);
   String email = '';
   String password = '';
 
-  Body({Key? key}) : super(key: key);
+    var islogin;
+ 
+  checkUserLoginState() async {
+    await Shared.getUserSharedPreferences().then((value) {
+      setState(() {
+        islogin = value;
+      });
+    });
+  }
+ 
+  @override
+  void initState() {
+    checkUserLoginState();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -95,8 +117,5 @@ class Body extends StatelessWidget {
     );
   }
 
-  Future SignIn() async {
-    await FirebaseAuth.instance
-        .signInWithEmailAndPassword(email: email, password: password);
-  }
+
 }
