@@ -2,6 +2,7 @@
 
 import 'package:depression_prediction_app/components/login_option.dart';
 import 'package:depression_prediction_app/screens/sign_in/sign_in_screen.dart';
+import 'package:depression_prediction_app/widgets/nav_bar.dart';
 import 'package:flutter/material.dart';
 import '../../../components/already_have_an_account_check.dart';
 import '../../../components/rounded_button.dart';
@@ -70,7 +71,7 @@ class Body extends StatelessWidget {
                 if (password == confirm_password) {
                   await FirebaseAuth.instance.createUserWithEmailAndPassword(
                       email: email, password: password);
-                  Navigator.of(context).pushNamed(HomeScreen.routeName);
+                  Navigator.of(context).pushNamed(NavBar.routeName);
                 } else {
                   print('$password and $confirm_password does not match');
                 }
