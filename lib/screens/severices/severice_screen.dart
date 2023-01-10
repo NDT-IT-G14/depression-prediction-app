@@ -34,7 +34,7 @@ class SevericeScreen extends StatelessWidget {
                       height: size.height * 0.05,
                     ),
                     const Text(
-                      "24/7 Severices",
+                      "24/7 Services",
                       style:
                           TextStyle(fontWeight: FontWeight.w700, fontSize: 32),
                     ),
@@ -42,8 +42,8 @@ class SevericeScreen extends StatelessWidget {
                     SizedBox(
                       width: size.width * .8, // it just take 60% of total width
                       child: const Text(
-                        "Live happier and healthier by learning the fundamentals of meditation and mindfulness",
-                        style: TextStyle(fontSize: 15),
+                        "We all are something, but none of us are everything.",
+                        style: TextStyle(fontSize: 20),
                       ),
                     ),
                     SizedBox(
@@ -52,23 +52,24 @@ class SevericeScreen extends StatelessWidget {
                     ),
                     const QuoteCard(
                       image: 'assets/icons/Meditation_women_small.svg',
-                      text: 'Doctor name',
-                      subtext: "Hospital details",
+                      text: 'DASANTHI AKMEEMANA',
+                      subtext:
+                          "Sri Jayewardenepura General Hospital - 0112 778610",
                     ),
                     const QuoteCard(
                       image: 'assets/icons/Meditation_women_small.svg',
-                      text: 'Doctor name',
-                      subtext: "Hospital details",
+                      text: 'MRS A.K.D. ARUNI THUSHARA ABEYSINGHE',
+                      subtext: "Durdans Hospital - 0115 410000",
                     ),
                     const QuoteCard(
                       image: 'assets/icons/Meditation_women_small.svg',
-                      text: 'Doctor name',
-                      subtext: "Hospital details",
+                      text: 'D.R.R ABEYSINGHE - 0817 770700',
+                      subtext: "CCC Kandy",
                     ),
                     const QuoteCard(
                       image: 'assets/icons/Meditation_women_small.svg',
-                      text: 'Doctor name',
-                      subtext: "Hospital details",
+                      text: 'B.C.M ABEYSOORIYA',
+                      subtext: "iChange Canter - 077 706 3013",
                     ),
                   ],
                 ),
