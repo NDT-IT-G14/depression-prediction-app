@@ -6,6 +6,7 @@ import '../../components/input_box.dart';
 import '../../components/labels.dart';
 
 class TroubleLogin extends StatefulWidget {
+  static const routeName = "/trouble_login";
   const TroubleLogin({Key? key}) : super(key: key);
 
   @override
