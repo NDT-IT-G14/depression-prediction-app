@@ -1,6 +1,9 @@
 import 'package:depression_prediction_app/constants.dart';
 import 'package:depression_prediction_app/screens/profile/profile_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+
+import '../../sign_in/sign_in_screen.dart';
 
 class MyHeaderDrawer extends StatefulWidget {
   const MyHeaderDrawer({super.key});
@@ -10,6 +13,15 @@ class MyHeaderDrawer extends StatefulWidget {
 }
 
 class _MyHeaderDrawerState extends State<MyHeaderDrawer> {
+  final FirebaseAuth auth = FirebaseAuth.instance;
+
+  signOut() async {
+    await auth.signOut();
+    // ignore: use_build_context_synchronously
+    Navigator.pushReplacement(
+        context, MaterialPageRoute(builder: (context) => const SignInScreen()));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -68,7 +80,7 @@ class _MyHeaderDrawerState extends State<MyHeaderDrawer> {
             'Logout',
             style: TextStyle(fontSize: 18),
           ),
-          onTap: () {},
+          onTap: () {signOut();},
         )
       ],
     );
