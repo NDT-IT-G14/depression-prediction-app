@@ -2,6 +2,8 @@
 
 import 'package:depression_prediction_app/constants.dart';
 import 'package:depression_prediction_app/routes.dart';
+import 'package:depression_prediction_app/screens/Emergancy/emergancy_screen.dart';
+import 'package:depression_prediction_app/screens/severices/severice_screen.dart';
 import 'package:depression_prediction_app/screens/welcome_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -49,9 +51,9 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.white,
         textTheme: Theme.of(context).textTheme.apply(displayColor: kTextColor),
       ),
-      // home: CommentScreen(),
-      initialRoute: WelcomeScreen.routeName,
-      routes: routes,
+      home: EmergancyScreen(),
+      // initialRoute: WelcomeScreen.routeName,
+      // routes: routes,
     );
   }
 }
