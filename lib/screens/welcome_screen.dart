@@ -4,10 +4,24 @@ import 'package:flutter/material.dart';
 import '../components/rounded_button.dart';
 import 'onbording/onbording_screen.dart';
 
-class WelcomeScreen extends StatelessWidget {
+class WelcomeScreen extends StatefulWidget {
   static const routeName = "/welcome_screen";
   const WelcomeScreen({Key? key}) : super(key: key);
 
+  @override
+  State<WelcomeScreen> createState() => _WelcomeScreenState();
+}
+
+class _WelcomeScreenState extends State<WelcomeScreen> {
+
+    @override
+  void initState() {
+    Future.delayed(Duration(seconds: 3), () {
+    Navigator.of(context).pushNamed(OnBordingScreen.routeName);
+    });
+    super.initState();
+  }
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,13 +46,6 @@ class WelcomeScreen extends StatelessWidget {
           Text(
             "Welcome to our app",
             style: TextStyle(fontSize: 18),
-          ),
-          SizedBox(height: 10),
-          RoundedButton(
-            text: "Continue",
-            press: () {
-              Navigator.of(context).pushNamed(OnBordingScreen.routeName);
-            },
           ),
         ],
       ),

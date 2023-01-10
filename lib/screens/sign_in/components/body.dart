@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, must_be_immutable, non_constant_identifier_names
 
+import 'package:depression_prediction_app/screens/sign_up/sign_up_screen.dart';
 import 'package:depression_prediction_app/widgets/nav_bar.dart';
 import 'package:flutter/material.dart';
 import '../../../components/already_have_an_account_check.dart';
@@ -80,7 +81,9 @@ class Body extends StatelessWidget {
           SizedBox(height: 10),
           AlreadyHaveAnAccountCheck(
             login: true,
-            press: () {},
+            press: () {
+              // Navigator.of(context).pushNamed(SignUpScreen.routeName);
+            },
           ),
           OrDivider(),
           SizedBox(
