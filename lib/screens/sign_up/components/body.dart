@@ -8,6 +8,7 @@ import '../../../components/rounded_button.dart';
 import '../../../components/rounded_input_field.dart';
 import '../../../components/rounded_password_field.dart';
 import '../../../constants.dart';
+import '../../home/home_screen.dart';
 import 'or_divider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -45,35 +46,39 @@ class Body extends StatelessWidget {
             onChanged: (value) {
               email = value;
             },
+            validator: (value) {},
           ),
           RoundedPasswordField(
             hintText: "Password",
             onChanged: (value) {
               password = value;
             },
+            validator: (value) {},
           ),
           RoundedPasswordField(
             hintText: "Confirm Password",
             onChanged: (value) {
               confirm_password = value;
             },
+            //confirm password validation
+            validator: (value) {},
           ),
           SizedBox(height: 10),
           RoundedButton(
-            text: "SIGNUP",
-            // press: () async {
-            //   if (password == confirm_password) {
-            //     await FirebaseAuth.instance.createUserWithEmailAndPassword(
-            //         email: email, password: password);
-            //     Navigator.of(context).pushNamed(HomeScreen.routeName);
-            //   } else {
-            //     print('$password and $confirm_password does not match');
-            //   }
-            // }
-            press: () {
-              Navigator.of(context).pushNamed(SignInScreen.routeName);
-            },
-          ),
+              text: "SIGNUP",
+              press: () async {
+                if (password == confirm_password) {
+                  await FirebaseAuth.instance.createUserWithEmailAndPassword(
+                      email: email, password: password);
+                  Navigator.of(context).pushNamed(HomeScreen.routeName);
+                } else {
+                  print('$password and $confirm_password does not match');
+                }
+              }
+              // press: () {
+              //   Navigator.of(context).pushNamed(SignInScreen.routeName);
+              // },
+              ),
           SizedBox(height: 10),
           AlreadyHaveAnAccountCheck(
             login: false,
@@ -103,3 +108,14 @@ class Body extends StatelessWidget {
     }
   }
 }
+
+// String validateEmail(String value) {
+//   Pattern pattern =
+//       r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
+//   RegExp regex = new RegExp(pattern);
+//   if (!regex.hasMatch(value))
+//     return 'Enter a valid email';
+//   else
+//     return null;
+// }
+

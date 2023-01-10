@@ -8,6 +8,7 @@ import '../../../components/rounded_button.dart';
 import '../../../components/rounded_input_field.dart';
 import '../../../components/rounded_password_field.dart';
 import '../../../constants.dart';
+import '../../home/home_screen.dart';
 import '../../sign_up/components/or_divider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -46,28 +47,35 @@ class Body extends StatelessWidget {
             onChanged: (value) {
               email = value;
             },
+            validator: (value) {},
           ),
           RoundedPasswordField(
             hintText: "Password",
             onChanged: (value) {
               password = value;
             },
+            validator: (value) {
+              if (value.isEmpty || value.length < 8) {
+                return 'Password must be at least 8 characters';
+              }
+              return null;
+            },
           ),
           SizedBox(height: 10),
           RoundedButton(
             text: "SIGN IN",
-            press: () {
-              Navigator.of(context).pushNamed(NavBar.routeName);
-            },
-            // press: () async {
-            //   try {
-            //     await FirebaseAuth.instance.signInWithEmailAndPassword(
-            //         email: email, password: password);
-            //     Navigator.of(context).pushNamed(HomeScreen.routeName);
-            //   } catch (e) {
-            //     print(e.toString());
-            //   }
+            // press: () {
+            //   Navigator.of(context).pushNamed(NavBar.routeName);
             // },
+            press: () async {
+              try {
+                await FirebaseAuth.instance.signInWithEmailAndPassword(
+                    email: email, password: password);
+                Navigator.of(context).pushNamed(HomeScreen.routeName);
+              } catch (e) {
+                print(e.toString());
+              }
+            },
           ),
           SizedBox(height: 10),
           AlreadyHaveAnAccountCheck(
