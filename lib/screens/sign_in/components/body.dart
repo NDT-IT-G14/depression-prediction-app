@@ -27,7 +27,7 @@ class Body extends StatefulWidget {
 
 class _BodyState extends State<Body> {
   GlobalKey<FormState> formkey = GlobalKey<FormState>();
-  // final const Body({Key? key}) : super(key: key);
+
   String email = '';
   String password = '';
 
@@ -169,7 +169,7 @@ class _BodyState extends State<Body> {
                       }
 
                       // ignore: use_build_context_synchronously
-                      Navigator.of(context).pushNamed(HomeScreen.routeName);
+                      Navigator.of(context).pushNamed(NavBar.routeName);
                       print("Validated");
                     }
                     setState(() {

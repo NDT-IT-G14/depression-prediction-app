@@ -4,6 +4,7 @@ import 'package:depression_prediction_app/components/login_option.dart';
 import 'package:depression_prediction_app/screens/sign_in/sign_in_screen.dart';
 import 'package:depression_prediction_app/widgets/nav_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:form_field_validator/form_field_validator.dart';
 import '../../../components/already_have_an_account_check.dart';
 import '../../../components/rounded_button.dart';
 import '../../../components/rounded_input_field.dart';
@@ -13,12 +14,22 @@ import '../../home/home_screen.dart';
 import 'or_divider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-class Body extends StatelessWidget {
-  String email = '';
-  String password = '';
-  String confirm_password = '';
+class Body extends StatefulWidget {
+  const Body({Key? key}) : super(key: key);
 
-  Body({Key? key}) : super(key: key);
+  @override
+  State<Body> createState() => _BodyState();
+}
+
+class _BodyState extends State<Body> {
+  String email = '';
+
+  String password = '';
+
+  String confirm_password = '';
+  bool showSnipper = false;
+  bool isLoading = false;
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -42,27 +53,64 @@ class Body extends StatelessWidget {
               fontSize: 16,
             ),
           ),
-          RoundedInputField(
-            hintText: "Your Email",
-            onChanged: (value) {
-              email = value;
-            },
-            validator: (value) {},
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 5),
+            child: TextFormField(
+              decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(29)),
+                  labelText: 'Email',
+                  hintText: 'Enter valid email'),
+              validator: (value) {
+                if (!(value!.isEmpty) &&
+                    !RegExp(r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$")
+                        .hasMatch(value)) {
+                  return "Enter a valid email address";
+                }
+                return null;
+              },
+              onChanged: (value) {
+                email = value;
+              },
+            ),
           ),
-          RoundedPasswordField(
-            hintText: "Password",
-            onChanged: (value) {
-              password = value;
-            },
-            validator: (value) {},
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 5),
+            child: TextFormField(
+              decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(29)),
+                  labelText: 'Password',
+                  hintText: 'Enter valid password'),
+              validator: (value) {
+                if (value!.isEmpty) {
+                  return "Please enter your password";
+                }
+                return null;
+              },
+              onChanged: (value) {
+                password = value;
+              },
+            ),
           ),
-          RoundedPasswordField(
-            hintText: "Confirm Password",
-            onChanged: (value) {
-              confirm_password = value;
-            },
-            //confirm password validation
-            validator: (value) {},
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 5),
+            child: TextFormField(
+              decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(29)),
+                  labelText: 'Confirm Password',
+                  hintText: 'Enter password again'),
+              validator: (value) {
+                if (value!.isEmpty) {
+                  return "Please enter password again";
+                }
+                return null;
+              },
+              onChanged: (value) {
+                confirm_password = value;
+              },
+            ),
           ),
           SizedBox(height: 10),
           RoundedButton(
@@ -76,8 +124,32 @@ class Body extends StatelessWidget {
                   print('$password and $confirm_password does not match');
                 }
               }
-              // press: () {
-              //   Navigator.of(context).pushNamed(SignInScreen.routeName);
+              // press: () async {
+              //   setState(() {
+              //     showSnipper = true;
+              //   });
+
+              //   try {
+              //     setState(() {
+              //       isLoading = true;
+              //     });
+              //     if (password == confirm_password) {
+              //       await FirebaseAuth.instance.createUserWithEmailAndPassword(
+              //           email: email, password: password);
+
+              //       Navigator.of(context).pushAndRemoveUntil(
+              //           MaterialPageRoute(builder: (context) => SignInScreen()),
+              //           (Route<dynamic> route) => false);
+              //     }
+              //     setState(() {
+              //       isLoading = false;
+              //     });
+              //   } catch (e) {
+              //     print(e);
+              //     setState(() {
+              //       isLoading = false;
+              //     });
+              //   }
               // },
               ),
           SizedBox(height: 10),
@@ -109,14 +181,3 @@ class Body extends StatelessWidget {
     }
   }
 }
-
-// String validateEmail(String value) {
-//   Pattern pattern =
-//       r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
-//   RegExp regex = new RegExp(pattern);
-//   if (!regex.hasMatch(value))
-//     return 'Enter a valid email';
-//   else
-//     return null;
-// }
-
