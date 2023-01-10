@@ -1,9 +1,9 @@
 //  ignore_for_file: prefer_const_constructors, depend_on_referenced_packages
 
+import 'dart:io';
+
 import 'package:depression_prediction_app/constants.dart';
 import 'package:depression_prediction_app/routes.dart';
-import 'package:depression_prediction_app/screens/Emergancy/emergancy_screen.dart';
-import 'package:depression_prediction_app/screens/severices/severice_screen.dart';
 import 'package:depression_prediction_app/screens/welcome_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -22,6 +22,7 @@ Future<void> main() async {
         appId: "1:291233092534:web:f36f5b0267891ce8f7e717"),
   );
   runApp(MyApp());
+  HttpOverrides.global = MyHttpOverrides();
 }
 
 class MyApp extends StatelessWidget {

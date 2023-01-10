@@ -18,7 +18,7 @@ class _BodyState extends State<Body> {
   List filedata = [
     {
       'name': 'lahiru',
-      'pic': 'https://picsum.photos/300/30',
+      'pic': 'assets/images/feedback.png',
       'message': 'I love to code'
     },
     {
@@ -124,7 +124,7 @@ class _BodyState extends State<Body> {
               setState(() {
                 var value = {
                   'name': 'New User',
-                  'pic': 'https://icons8.com/icon/EIh9SZxRTpHl/man-beard',
+                  'pic': 'assets/images/feedback.png',
                   'message': commentController.text
                 };
                 filedata.insert(0, value);
