@@ -14,7 +14,7 @@ import 'package:flutter/material.dart';
 
 final Map<String, WidgetBuilder> routes = {
   WelcomeScreen.routeName: (_) => const WelcomeScreen(),
-  OnBordingScreen.routeName: (_) => const OnBordingScreen(),
+  OnbordingScreen.routeName: (_) => const OnbordingScreen(),
   SignUpScreen.routeName: (_) => const SignUpScreen(),
   SignInScreen.routeName: (_) => const SignInScreen(),
   HomeScreen.routeName: (_) => const HomeScreen(),

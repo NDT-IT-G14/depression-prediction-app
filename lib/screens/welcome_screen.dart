@@ -13,15 +13,14 @@ class WelcomeScreen extends StatefulWidget {
 }
 
 class _WelcomeScreenState extends State<WelcomeScreen> {
-
-    @override
+  @override
   void initState() {
     Future.delayed(Duration(seconds: 3), () {
-    Navigator.of(context).pushNamed(OnBordingScreen.routeName);
+      Navigator.of(context).pushNamed(OnbordingScreen.routeName);
     });
     super.initState();
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
