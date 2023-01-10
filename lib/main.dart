@@ -1,7 +1,12 @@
 //  ignore_for_file: prefer_const_constructors, depend_on_referenced_packages
 
+import 'dart:io';
+
 import 'package:depression_prediction_app/constants.dart';
 import 'package:depression_prediction_app/routes.dart';
+import 'package:depression_prediction_app/screens/Notification/body.dart';
+import 'package:depression_prediction_app/screens/Notification/notifi_screen.dart';
+import 'package:depression_prediction_app/screens/feedback/feedback_screen.dart';
 import 'package:depression_prediction_app/screens/welcome_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -33,6 +38,7 @@ Future<void> main() async {
   // }
 
   runApp(MyApp());
+  HttpOverrides.global = MyHttpOverrides();
 }
 
 class MyApp extends StatelessWidget {
@@ -49,9 +55,9 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.white,
         textTheme: Theme.of(context).textTheme.apply(displayColor: kTextColor),
       ),
-      // home: CommentScreen(),
-      initialRoute: WelcomeScreen.routeName,
-      routes: routes,
+      home: NotificationScreen(),
+      // initialRoute: WelcomeScreen.routeName,
+      // routes: routes,
     );
   }
 }
