@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:depression_prediction_app/screens/sign_up/sign_up_screen.dart';
 import 'package:flutter/material.dart';
-
+import 'package:shared_preferences/shared_preferences.dart';
 import '../../../constants.dart';
 import 'components/onbording_content.dart';
 
@@ -16,6 +16,15 @@ class OnbordingScreen extends StatefulWidget {
 class _OnbordingScreenState extends State<OnbordingScreen> {
   int currentPage = 0;
   late PageController _controller;
+
+  final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
+  autoLogin() async {
+    final SharedPreferences prefs = await _prefs;
+    var isLogin = prefs.getBool("isLogin");
+    if (isLogin == true) {
+      Navigator.pushNamed(context, '/home_screen');
+    }
+  }
 
   List<Map<String, String>> onbordingData = [
     {
@@ -34,6 +43,7 @@ class _OnbordingScreenState extends State<OnbordingScreen> {
 
   @override
   void initState() {
+    autoLogin();
     _controller = PageController(initialPage: 0);
     super.initState();
   }

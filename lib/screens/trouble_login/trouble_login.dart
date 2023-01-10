@@ -5,14 +5,14 @@ import '../../components/footer_text.dart';
 import '../../components/input_box.dart';
 import '../../components/labels.dart';
 
-class TroubleLoginHome extends StatefulWidget {
-  const TroubleLoginHome({Key? key}) : super(key: key);
+class TroubleLogin extends StatefulWidget {
+  const TroubleLogin({Key? key}) : super(key: key);
 
   @override
-  _TroubleLoginHomeState createState() => _TroubleLoginHomeState();
+  _TroubleLoginState createState() => _TroubleLoginState();
 }
 
-class _TroubleLoginHomeState extends State<TroubleLoginHome> {
+class _TroubleLoginState extends State<TroubleLogin> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
