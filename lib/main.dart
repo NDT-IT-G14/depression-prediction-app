@@ -10,6 +10,8 @@ import 'screens/feedback/components/comment_screen.dart';
 import 'screens/music/music_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 
+import 'widgets/nav_bar.dart';
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // We're using the manual installation on non-web platforms since Google sign in plugin doesn't yet support Dart initialization.
@@ -51,9 +53,9 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.white,
         textTheme: Theme.of(context).textTheme.apply(displayColor: kTextColor),
       ),
-      // home: TroubleLogin(),
-      initialRoute: WelcomeScreen.routeName,
-      routes: routes,
+      home: NavBar(),
+      // initialRoute: WelcomeScreen.routeName,
+      // routes: routes,
     );
   }
 }

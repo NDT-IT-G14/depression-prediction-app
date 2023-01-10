@@ -38,7 +38,7 @@ class Body extends StatelessWidget {
           ),
           SizedBox(height: size.height * 0.03),
           Text(
-            "Create New Account",
+            "Sign in your Account",
             style: TextStyle(
               fontSize: 16,
             ),
