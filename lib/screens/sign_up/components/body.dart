@@ -57,9 +57,13 @@ class _BodyState extends State<Body> {
             padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 5),
             child: TextFormField(
               decoration: InputDecoration(
+                  prefixIcon: Icon(
+                    Icons.email,
+                    color: kPrimaryColor,
+                  ),
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(29)),
-                  labelText: 'Email',
+                  labelText: 'Email address',
                   hintText: 'Enter valid email'),
               validator: (value) {
                 if (!(value!.isEmpty) &&
@@ -78,6 +82,10 @@ class _BodyState extends State<Body> {
             padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 5),
             child: TextFormField(
               decoration: InputDecoration(
+                  prefixIcon: Icon(
+                    Icons.lock,
+                    color: kPrimaryColor,
+                  ),
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(29)),
                   labelText: 'Password',
@@ -97,6 +105,10 @@ class _BodyState extends State<Body> {
             padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 5),
             child: TextFormField(
               decoration: InputDecoration(
+                  prefixIcon: Icon(
+                    Icons.lock,
+                    color: kPrimaryColor,
+                  ),
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(29)),
                   labelText: 'Confirm Password',

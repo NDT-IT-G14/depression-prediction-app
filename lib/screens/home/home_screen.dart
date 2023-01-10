@@ -18,8 +18,9 @@ class HomeScreen extends StatelessWidget {
     var size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
+        elevation: 0,
+        foregroundColor: kPrimaryColor,
         backgroundColor: kPrimaryLightColor,
-        shadowColor: kPrimaryLightColor,
       ),
       drawer: const Drawer(
         child: SingleChildScrollView(
@@ -33,9 +34,9 @@ class HomeScreen extends StatelessWidget {
             decoration: const BoxDecoration(
               color: kPrimaryLightColor,
               image: DecorationImage(
-                scale: 1.9,
+                fit: BoxFit.fill,
                 alignment: Alignment.centerRight,
-                image: AssetImage("assets/images/home_image.png"),
+                image: AssetImage("assets/images/main.png"),
               ),
             ),
           ),
@@ -45,9 +46,6 @@ class HomeScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const SizedBox(
-                    height: 10,
-                  ),
                   const Text(
                     "Check Your Mental Health\nWithout Going Anyware",
                     style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
@@ -77,8 +75,8 @@ class HomeScreen extends StatelessWidget {
                       mainAxisSpacing: 20,
                       children: <Widget>[
                         CategoryCard(
-                          title: "Songs Recommendation",
-                          svgSrc: "assets/icons/Hamburger.svg",
+                          title: "Songs",
+                          image: "assets/images/Artboard_1.png",
                           press: () {
                             Navigator.of(context)
                                 .pushNamed(MusicScreen.routeName);
@@ -86,15 +84,15 @@ class HomeScreen extends StatelessWidget {
                         ),
                         CategoryCard(
                           title: "Reading Quotes",
-                          svgSrc: "assets/icons/Excrecises.svg",
+                          image: "assets/images/Artboard_2.png",
                           press: () {
                             Navigator.of(context)
                                 .pushNamed(QuotesScreen.routeName);
                           },
                         ),
                         CategoryCard(
-                          title: "Our 24/7 Severices",
-                          svgSrc: "assets/icons/Meditation.svg",
+                          title: "Severices",
+                          image: "assets/images/Artboard_3.png",
                           press: () {
                             Navigator.of(context)
                                 .pushNamed(SevericeScreen.routeName);
@@ -102,7 +100,7 @@ class HomeScreen extends StatelessWidget {
                         ),
                         CategoryCard(
                           title: "Our Feedbacks",
-                          svgSrc: "assets/icons/yoga.svg",
+                          image: "assets/images/Artboard_4.png",
                           press: () {
                             Navigator.of(context)
                                 .pushNamed(FeedbackScreen.routeName);

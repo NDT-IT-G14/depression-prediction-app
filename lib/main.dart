@@ -1,15 +1,11 @@
 //  ignore_for_file: prefer_const_constructors, depend_on_referenced_packages
-
 import 'dart:io';
-
 import 'package:depression_prediction_app/constants.dart';
 import 'package:depression_prediction_app/routes.dart';
 import 'package:depression_prediction_app/screens/welcome_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-
-import 'screens/sign_in/sign_in_screen.dart';
-import 'screens/sign_up/sign_up_screen.dart';
+import 'screens/chatbot/body.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
