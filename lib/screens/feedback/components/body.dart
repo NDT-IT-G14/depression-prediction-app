@@ -1,7 +1,6 @@
 // ignore_for_file: avoid_print
 
 import 'package:comment_box/comment/comment.dart';
-import 'package:depression_prediction_app/constants.dart';
 import 'package:flutter/material.dart';
 
 class Body extends StatefulWidget {
@@ -83,20 +82,20 @@ class _BodyState extends State<Body> {
       appBar: AppBar(
           automaticallyImplyLeading: false,
           toolbarHeight: size.height * .35,
-          title: Text(
+          title: const Text(
             'Comment',
             style: TextStyle(
               fontSize: 40,
             ),
           ),
           flexibleSpace: Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
                 image: DecorationImage(
               image: AssetImage("assets/images/feedback.png"),
             )),
           ),
-          backgroundColor: Color(0xffff8b94),
-          shape: RoundedRectangleBorder(
+          backgroundColor: const Color(0xffff8b94),
+          shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.only(
                   // bottomRight: Radius.circular(40),
                   // bottomRight: Radius.elliptical(100, 10),
@@ -138,7 +137,7 @@ class _BodyState extends State<Body> {
           formKey: formKey,
           commentController: commentController,
           backgroundColor: Colors.white,
-          textColor: Color.fromARGB(255, 15, 15, 15),
+          textColor: const Color.fromARGB(255, 15, 15, 15),
           sendWidget: const Icon(Icons.send_sharp,
               size: 30, color: Color.fromARGB(255, 19, 18, 18)),
           child: commentChild(filedata),

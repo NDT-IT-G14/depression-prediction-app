@@ -1,3 +1,5 @@
+// ignore_for_file: camel_case_types
+
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -31,7 +33,7 @@ class ChatPage extends StatefulWidget {
 }
 
 Future<String> generateResponse(String prompt) async {
-  final apiKey = apiSecretKey;
+  const apiKey = apiSecretKey;
 
   var url = Uri.https("api.openai.com", "/v1/completions");
   final response = await http.post(
@@ -81,7 +83,7 @@ class _ChatPageState extends State<ChatPage> {
             textAlign: TextAlign.center,
           ),
         ),
-        backgroundColor: Color(0xff1D7874),
+        backgroundColor: const Color(0xff1D7874),
       ),
       backgroundColor: botBackgroundColor,
       body: SafeArea(
@@ -118,7 +120,7 @@ class _ChatPageState extends State<ChatPage> {
     return Visibility(
       visible: !isLoading,
       child: Container(
-        color: Color.fromARGB(255, 247, 244, 244),
+        color: const Color.fromARGB(255, 247, 244, 244),
         child: IconButton(
           icon: const Icon(
             Icons.send_rounded,
@@ -223,8 +225,8 @@ class ChatMessageWidget extends StatelessWidget {
           chatMessageType == ChatMessageType.bot
               ? Container(
                   margin: const EdgeInsets.only(right: 16.0),
-                  child: CircleAvatar(
-                    backgroundColor: const Color.fromRGBO(16, 163, 127, 1),
+                  child: const CircleAvatar(
+                    backgroundColor: Color.fromRGBO(16, 163, 127, 1),
                     // child: Image.asset(
                     //   'assets/bot.png',
                     //   color: Colors.white,

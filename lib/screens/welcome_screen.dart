@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import '../components/rounded_button.dart';
 import 'onbording/onbording_screen.dart';
 
 class WelcomeScreen extends StatefulWidget {

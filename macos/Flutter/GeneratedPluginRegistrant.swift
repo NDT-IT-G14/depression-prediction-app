@@ -9,7 +9,6 @@ import firebase_auth
 import firebase_core
 import path_provider_macos
 import photo_manager
-
 import shared_preferences_macos
 import url_launcher_macos
 
