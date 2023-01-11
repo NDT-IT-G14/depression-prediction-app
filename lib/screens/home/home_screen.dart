@@ -34,9 +34,9 @@ class HomeScreen extends StatelessWidget {
             decoration: const BoxDecoration(
               color: kPrimaryLightColor,
               image: DecorationImage(
-                fit: BoxFit.fill,
+                scale: 1.9,
                 alignment: Alignment.centerRight,
-                image: AssetImage("assets/images/main.png"),
+                image: AssetImage("assets/images/home_image.png"),
               ),
             ),
           ),
