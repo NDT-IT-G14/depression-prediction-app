@@ -1,5 +1,7 @@
 // ignore_for_file: file_names
 
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -22,7 +24,7 @@ class EmergancyCard extends StatelessWidget {
       padding: const EdgeInsets.all(10),
       height: 90,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Colors.blue.shade100,
         borderRadius: BorderRadius.circular(13),
         boxShadow: [
           BoxShadow(
@@ -52,7 +54,8 @@ class EmergancyCard extends StatelessWidget {
                   style: const TextStyle(
                       fontSize: 16, fontWeight: FontWeight.bold),
                 ),
-                Text(subtext),
+                Text(subtext,style: const TextStyle(
+                      fontSize: 14, fontWeight:null,),),
               ],
             ),
           ),
