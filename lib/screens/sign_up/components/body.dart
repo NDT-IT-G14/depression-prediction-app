@@ -1,16 +1,11 @@
-// ignore_for_file: prefer_const_constructors, avoid_print, non_constant_identifier_names, must_be_immutable
+// ignore_for_file: prefer_const_constructors, avoid_print, non_constant_identifier_names, must_be_immutable, prefer_is_not_empty, use_build_context_synchronously
 
 import 'package:depression_prediction_app/components/login_option.dart';
-import 'package:depression_prediction_app/screens/sign_in/sign_in_screen.dart';
 import 'package:depression_prediction_app/widgets/nav_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:form_field_validator/form_field_validator.dart';
 import '../../../components/already_have_an_account_check.dart';
 import '../../../components/rounded_button.dart';
-import '../../../components/rounded_input_field.dart';
-import '../../../components/rounded_password_field.dart';
 import '../../../constants.dart';
-import '../../home/home_screen.dart';
 import 'or_divider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 

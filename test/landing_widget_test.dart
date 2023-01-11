@@ -1,7 +1,5 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:depression_prediction_app/screens/welcome_screen.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

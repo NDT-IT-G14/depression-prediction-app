@@ -1,6 +1,5 @@
-// ignore_for_file: prefer_const_constructors, must_be_immutable, non_constant_identifier_names
+// ignore_for_file: prefer_const_constructors, must_be_immutable, non_constant_identifier_names, prefer_typing_uninitialized_variables, no_leading_underscores_for_local_identifiers, avoid_print
 
-import 'package:depression_prediction_app/screens/sign_up/sign_up_screen.dart';
 import 'package:depression_prediction_app/widgets/nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
@@ -8,11 +7,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../../components/already_have_an_account_check.dart';
 import '../../../components/login_option.dart';
 import '../../../components/rounded_button.dart';
-import '../../../components/rounded_input_field.dart';
-import '../../../components/rounded_password_field.dart';
 import '../../../constants.dart';
 import '../../../shared.dart';
-import '../../home/home_screen.dart';
 import '../../sign_up/components/or_divider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
