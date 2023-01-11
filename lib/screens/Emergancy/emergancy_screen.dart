@@ -14,9 +14,9 @@ class EmergancyScreen extends StatelessWidget {
           Container(
             height: size.height * .45,
             decoration: const BoxDecoration(
-              color: Colors.white,
+              color: Color.fromARGB(255, 0, 80, 199),
               image: DecorationImage(
-                image: AssetImage("assets/images/dfbjj.png"),
+                image: AssetImage("assets/images/abc.png"),
                 fit: BoxFit.fitWidth,
               ),
             ),
@@ -60,6 +60,21 @@ class EmergancyScreen extends StatelessWidget {
                       image: 'assets/icons/emergency-call-svgrepo-com.svg',
                       text: '911',
                       subtext: "Emergency Number",
+                    ),
+                    const EmergancyCard(
+                      image: 'assets/icons/emergency-call-svgrepo-com.svg',
+                      text: ' 077 227 0767 ',
+                      subtext: "International Ambulance Service Sri Lanka",
+                    ),
+                    const EmergancyCard(
+                      image: 'assets/icons/emergency-call-svgrepo-com.svg',
+                      text: '011-2691111',
+                      subtext: "Accident Service-General Hospital-Colombo",
+                    ),
+                    const EmergancyCard(
+                      image: 'assets/icons/emergency-call-svgrepo-com.svg',
+                      text: '110',
+                      subtext: "Ambulance / Fire & rescue",
                     ),
                   ],
                 ),

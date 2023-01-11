@@ -1,4 +1,6 @@
 import 'dart:io';
+import 'package:depression_prediction_app/constants.dart';
+
 import 'editable_image.dart';
 import 'package:flutter/material.dart';
 
@@ -140,13 +142,13 @@ class _ProfileState extends State<Body> {
         ),
         side:
             MaterialStateProperty.all(const BorderSide(color: Colors.black54)),
-        backgroundColor: MaterialStateProperty.all(const Color.fromARGB(255, 123, 255, 106)),
+        backgroundColor: MaterialStateProperty.all(kPrimaryColor),
         shadowColor: MaterialStateProperty.all(const Color.fromARGB(255, 128, 167, 123))
       ),
       child: const Text(
         'Save',
         style: TextStyle(
-          color: Colors.black,
+          color: Color.fromARGB(255, 255, 255, 255),
           fontSize: 25.0,
         ),
       ),

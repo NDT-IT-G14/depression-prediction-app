@@ -20,7 +20,7 @@ class QuoteCard extends StatelessWidget {
       padding: const EdgeInsets.all(10),
       height: 90,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: const Color.fromARGB(255, 240, 234, 255),
         borderRadius: BorderRadius.circular(13),
         boxShadow: [
           BoxShadow(

@@ -20,7 +20,7 @@ class CategoryCard extends StatelessWidget {
       child: Container(
         // padding: EdgeInsets.all(20),
         decoration: BoxDecoration(
-          color: Colors.white60,
+          color: const Color.fromARGB(255, 221, 255, 252),
           borderRadius: BorderRadius.circular(13),
           boxShadow: [
             BoxShadow(
