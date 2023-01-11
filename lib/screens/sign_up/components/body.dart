@@ -3,6 +3,7 @@
 import 'package:depression_prediction_app/components/login_option.dart';
 import 'package:depression_prediction_app/widgets/nav_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:form_field_validator/form_field_validator.dart';
 import '../../../components/already_have_an_account_check.dart';
 import '../../../components/rounded_button.dart';
 import '../../../constants.dart';
@@ -61,17 +62,21 @@ class _BodyState extends State<Body> {
                       borderRadius: BorderRadius.circular(29)),
                   labelText: 'Email address',
                   hintText: 'Enter valid email'),
-              validator: (value) {
-                if (!(value!.isEmpty) &&
-                    !RegExp(r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$")
-                        .hasMatch(value)) {
-                  return "Enter a valid email address";
-                }
-                return null;
-              },
-              onChanged: (value) {
-                email = value;
-              },
+              validator: MultiValidator([
+                RequiredValidator(errorText: "* Required"),
+                EmailValidator(errorText: "Enter valid email"),
+              ]),
+              //  (value) {
+              //   if (!(value!.isEmpty) &&
+              //       !RegExp(r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$")
+              //           .hasMatch(value)) {
+              //     return "Enter a valid email address";
+              //   }
+              //   return null;
+              // },
+              // onChanged: (value) {
+              //   email = value;
+              // },
             ),
           ),
           Padding(
@@ -87,15 +92,23 @@ class _BodyState extends State<Body> {
                       borderRadius: BorderRadius.circular(29)),
                   labelText: 'Password',
                   hintText: 'Enter valid password'),
-              validator: (value) {
-                if (value!.isEmpty) {
-                  return "Please enter your password";
-                }
-                return null;
-              },
-              onChanged: (value) {
-                password = value;
-              },
+              validator: MultiValidator([
+                RequiredValidator(errorText: "* Required"),
+                MinLengthValidator(6,
+                    errorText: "Password should be at least 6 characters"),
+                MaxLengthValidator(15,
+                    errorText:
+                        "Password should not be greater than 15 characters")
+              ]),
+              // (value) {
+              //   if (value!.isEmpty) {
+              //     return "Please enter your password";
+              //   }
+              //   return null;
+              // },
+              // onChanged: (value) {
+              //   password = value;
+              // },
             ),
           ),
           Padding(
@@ -111,15 +124,23 @@ class _BodyState extends State<Body> {
                       borderRadius: BorderRadius.circular(29)),
                   labelText: 'Confirm Password',
                   hintText: 'Enter password again'),
-              validator: (value) {
-                if (value!.isEmpty) {
-                  return "Please enter password again";
-                }
-                return null;
-              },
-              onChanged: (value) {
-                confirm_password = value;
-              },
+              validator: MultiValidator([
+                RequiredValidator(errorText: "* Required"),
+                MinLengthValidator(6,
+                    errorText: "Password should be at least 6 characters"),
+                MaxLengthValidator(15,
+                    errorText:
+                        "Password should not be greater than 15 characters")
+              ]),
+              // (value) {
+              //   if (value!.isEmpty) {
+              //     return "Please enter password again";
+              //   }
+              //   return null;
+              // },
+              // onChanged: (value) {
+              //   confirm_password = value;
+              // },
             ),
           ),
           SizedBox(height: 10),
