@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import '../../constants.dart';
 import '../../widgets/search_bar.dart';
-import '../quotes/components/quote_card.dart';
 
 class SevericeScreen extends StatelessWidget {
   static const routeName = "/severice_screen";
