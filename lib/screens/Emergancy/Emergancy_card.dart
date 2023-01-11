@@ -1,6 +1,5 @@
 // ignore_for_file: file_names
 
-import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
