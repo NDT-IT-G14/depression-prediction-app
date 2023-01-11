@@ -1,4 +1,3 @@
-import 'package:depression_prediction_app/screens/sign_in/google_sign_in_screen.dart';
 import 'package:flutter/material.dart';
 
 class LoginOption extends StatelessWidget {
@@ -10,29 +9,22 @@ class LoginOption extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          GestureDetector(
-            onTap: () {
-              Navigator.of(context).pushNamed(GoogleSignIn.routeName);
-            },
-            child: const BuildButton(
-              iconImage: Image(
-                height: 20,
-                width: 20,
-                image: AssetImage('assets/images/facebook.png'),
-              ),
-              textButton: 'Facebook',
+        children: const [
+          BuildButton(
+            iconImage: Image(
+              height: 20,
+              width: 20,
+              image: AssetImage('assets/images/facebook.png'),
             ),
+            textButton: 'Facebook',
           ),
-          GestureDetector(
-            child: const BuildButton(
-              iconImage: Image(
-                height: 20,
-                width: 20,
-                image: AssetImage('assets/images/google.png'),
-              ),
-              textButton: 'Google',
+          BuildButton(
+            iconImage: Image(
+              height: 20,
+              width: 20,
+              image: AssetImage('assets/images/google.png'),
             ),
+            textButton: 'Google',
           ),
         ],
       ),

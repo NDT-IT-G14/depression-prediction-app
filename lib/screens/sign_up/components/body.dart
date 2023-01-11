@@ -51,6 +51,7 @@ class _BodyState extends State<Body> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 5),
             child: TextFormField(
+              obscureText: false,
               decoration: InputDecoration(
                   prefixIcon: Icon(
                     Icons.email,
@@ -76,6 +77,7 @@ class _BodyState extends State<Body> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 5),
             child: TextFormField(
+              obscureText: true,
               decoration: InputDecoration(
                   prefixIcon: Icon(
                     Icons.lock,
@@ -99,6 +101,7 @@ class _BodyState extends State<Body> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 5),
             child: TextFormField(
+              obscureText: true,
               decoration: InputDecoration(
                   prefixIcon: Icon(
                     Icons.lock,
@@ -126,7 +129,9 @@ class _BodyState extends State<Body> {
                 if (password == confirm_password) {
                   await FirebaseAuth.instance.createUserWithEmailAndPassword(
                       email: email, password: password);
-                  Navigator.of(context).pushNamed(NavBar.routeName);
+                  Navigator.of(context).pushAndRemoveUntil(
+                      MaterialPageRoute(builder: (context) => NavBar()),
+                      (Route<dynamic> route) => false);
                 } else {
                   print('$password and $confirm_password does not match');
                 }
