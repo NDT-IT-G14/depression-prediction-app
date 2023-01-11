@@ -5,6 +5,7 @@ import 'package:depression_prediction_app/screens/profile/profile_screen.dart';
 import 'package:depression_prediction_app/screens/quiz/quiz_screen.dart';
 import 'package:depression_prediction_app/screens/quotes/quote_screen.dart';
 import 'package:depression_prediction_app/screens/severices/severice_screen.dart';
+import 'package:depression_prediction_app/screens/sign_in/google_sign_in_screen.dart';
 import 'package:depression_prediction_app/screens/sign_in/sign_in_screen.dart';
 import 'package:depression_prediction_app/screens/sign_up/sign_up_screen.dart';
 import 'package:depression_prediction_app/screens/onbording/onbording_screen.dart';
@@ -27,4 +28,5 @@ final Map<String, WidgetBuilder> routes = {
   SevericeScreen.routeName: (_) => const SevericeScreen(),
   NavBar.routeName: (_) => const NavBar(),
   TroubleLogin.routeName: (_) => const TroubleLogin(),
+  GoogleSignIn.routeName: (_) => const GoogleSignIn(),
 };

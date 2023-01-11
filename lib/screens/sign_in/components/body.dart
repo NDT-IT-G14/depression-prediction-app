@@ -45,8 +45,9 @@ class _BodyState extends State<Body> {
       return "Password should be atleast 6 characters";
     } else if (value.length > 15) {
       return "Password should not be greater than 15 characters";
-    } else
+    } else {
       return null;
+    }
   }
 
   checkUserLoginState() async {
@@ -89,13 +90,6 @@ class _BodyState extends State<Body> {
                 fontSize: 16,
               ),
             ),
-            // RoundedInputField(
-            //   hintText: "Your Email",
-            //   onChanged: (value) {
-            //     email = value;
-            //   },
-            //   validator: (value) {},
-            // ),
             SizedBox(
               height: 20,
             ),
@@ -104,6 +98,10 @@ class _BodyState extends State<Body> {
               child: TextFormField(
                 controller: _email,
                 decoration: InputDecoration(
+                    prefixIcon: Icon(
+                      Icons.mail,
+                      color: kPrimaryColor,
+                    ),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(29)),
                     labelText: 'Email',
@@ -123,6 +121,10 @@ class _BodyState extends State<Body> {
                 controller: _password,
                 obscureText: true,
                 decoration: InputDecoration(
+                    prefixIcon: Icon(
+                      Icons.lock,
+                      color: kPrimaryColor,
+                    ),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(29)),
                     labelText: 'Password',
@@ -188,7 +190,7 @@ class _BodyState extends State<Body> {
                                   },
                                   child: Text('Cancel')),
                             ],
-                            content: Text("Invalid user credintials"),
+                            content: Text("Invalid user details"),
                           );
                         });
                     setState(() {

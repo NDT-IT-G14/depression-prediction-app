@@ -1,9 +1,8 @@
-import 'package:depression_prediction_app/screens/home/home_screen.dart';
+import 'package:depression_prediction_app/components/rounded_button.dart';
 import 'package:flutter/material.dart';
-import '../../components/button.dart';
+import 'package:form_field_validator/form_field_validator.dart';
 import '../../components/footer_text.dart';
-import '../../components/input_box.dart';
-import '../../components/labels.dart';
+import '../sign_in/sign_in_screen.dart';
 
 class TroubleLogin extends StatefulWidget {
   static const routeName = "/trouble_login";
@@ -18,15 +17,11 @@ class _TroubleLoginState extends State<TroubleLogin> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
-      body: SingleChildScrollView(
+      body: SafeArea(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Container(
-              width: size.width,
-              margin: EdgeInsets.only(top: size.height / 15),
-              child: Image.asset("assets/images/foget.png"),
-            ),
             Container(
               margin: EdgeInsets.only(
                 left: size.width / 15,
@@ -35,28 +30,42 @@ class _TroubleLoginState extends State<TroubleLogin> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
+                  SizedBox(
                     width: size.width,
-                    child:const Text(
-                      "Trouble Log In?",
-                      style: TextStyle(fontSize: 40, fontWeight: FontWeight.w700),
+                    child: const Text(
+                      "Reset Password",
+                      style:
+                          TextStyle(fontSize: 40, fontWeight: FontWeight.w700),
                     ),
                   ),
-                  SizedBox(
-                    height: size.height / 20,
+                  const SizedBox(
+                    height: 20,
                   ),
-                  Labels.inputlabels("Enter your Email"),
-                  InputBox.UserInput(false),
+                  TextFormField(
+                    decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(29)),
+                        labelText: 'Enter your Email',
+                        hintText: 'Enter valid email'),
+                    validator: MultiValidator([
+                      RequiredValidator(errorText: "* Required"),
+                      EmailValidator(errorText: "Enter valid email"),
+                    ]),
+                  ),
                   SizedBox(
                     height: size.height / 70,
                   ),
-                  Container(
-                    width: size.width,
-                    child: Button.RoseButton(
-                        context, "Send Reset Email", HomeScreen()),
-                  ),
                   SizedBox(
-                    height: size.height / 8,
+                    width: size.width,
+                    child: RoundedButton(
+                      text: "Send Reset Code",
+                      press: () {
+                        Navigator.of(context).pushNamed(SignInScreen.routeName);
+                      },
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 40,
                   ),
                   FooterText.FotterMessage()
                 ],

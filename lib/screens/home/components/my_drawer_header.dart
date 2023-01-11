@@ -2,7 +2,6 @@ import 'package:depression_prediction_app/constants.dart';
 import 'package:depression_prediction_app/screens/profile/profile_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
 import '../../sign_in/sign_in_screen.dart';
 
 class MyHeaderDrawer extends StatefulWidget {

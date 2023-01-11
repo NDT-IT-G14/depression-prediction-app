@@ -1,8 +1,7 @@
 import 'package:depression_prediction_app/screens/profile/profile_screen.dart';
 import 'package:flutter/material.dart';
-
 import '../screens/Emergancy/emergancy_screen.dart';
-import '../screens/Notification/notifi_screen.dart';
+import '../screens/chatbot/chatbot_screen.dart';
 import '../screens/home/home_screen.dart';
 
 class NavBar extends StatefulWidget {
@@ -17,8 +16,8 @@ class _NavBarState extends State<NavBar> {
   int currentPageIndex = 0;
   final screens = [
     const HomeScreen(),
+    const ChatBotScreen(),
     const EmergancyScreen(),
-    const NotificationScreen(),
     const ProfileScreen(),
   ];
   @override
@@ -39,12 +38,12 @@ class _NavBarState extends State<NavBar> {
             label: "Home",
           ),
           NavigationDestination(
-            icon: Icon(Icons.health_and_safety),
-            label: "Emergancy",
+            icon: Icon(Icons.chat),
+            label: "Chatbot",
           ),
           NavigationDestination(
-            icon: Icon(Icons.notifications),
-            label: "Notification",
+            icon: Icon(Icons.health_and_safety),
+            label: "Emergancy",
           ),
           NavigationDestination(
             icon: Icon(Icons.account_circle),
