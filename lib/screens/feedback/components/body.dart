@@ -17,22 +17,22 @@ class _BodyState extends State<Body> {
   List filedata = [
     {
       'name': 'lahiru',
-      'pic': 'assets/images/feedback.png',
+      'pic': 'assets/images/feebbacklogo.png',
       'message': 'I love to code'
     },
     {
-      'name': 'kehelia',
-      'pic': 'assets/images/feedback.png',
+      'name': 'keheliya',
+      'pic': 'assets/images/feebbacklogo.png',
       'message': 'Very cool'
     },
     {
       'name': 'ayodya',
-      'pic': 'assets/images/feedback.png',
+      'pic': 'assets/images/feebbacklogo.png',
       'message': 'Very cool'
     },
     {
       'name': 'nadil',
-      'pic': 'assets/images/feedback.png',
+      'pic': 'assets/images/feebbacklogo.png',
       'message': 'not bad'
     },
   ];
@@ -105,7 +105,7 @@ class _BodyState extends State<Body> {
         Container(
           height: size.height * 1.00,
           decoration: const BoxDecoration(
-            color: Color(0xffffd3b6),
+            color: Colors.white,
             // image: DecorationImage(
             //   image: AssetImage("assets/images/feedback.png"),
             //   fit: BoxFit.fitWidth,
@@ -123,7 +123,7 @@ class _BodyState extends State<Body> {
               setState(() {
                 var value = {
                   'name': 'New User',
-                  'pic': 'assets/images/feedback.png',
+                  'pic': 'assets/images/feebbacklogo.png',
                   'message': commentController.text
                 };
                 filedata.insert(0, value);
