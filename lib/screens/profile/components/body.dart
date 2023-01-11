@@ -1,3 +1,5 @@
+import 'dart:io';
+import 'editable_image.dart';
 import 'package:flutter/material.dart';
 
 class Body extends StatefulWidget {
@@ -11,186 +13,143 @@ class Body extends StatefulWidget {
 }
 
 class _ProfileState extends State<Body> {
+  File? _profilePicFile;
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  // A simple usage of EditableImage.
+  // This method gets called when trying to change an image.
+  void _directUpdateImage(File? file) async {
+    if (file == null) return;
+
+    setState(() {
+      _profilePicFile = file;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(vertical: 20),
-        child: Column(
-          children: [
-            //for circle avtar image
-            _getHeader(),
-            const SizedBox(
-              height: 10,
-            ),
-            _profileName("Lahiru Munasinghe"),
-            const SizedBox(
-              height: 14,
-            ),
-            _heading("Personal Details"),
-            const SizedBox(
-              height: 6,
-            ),
-            _detailsCard(),
-            const SizedBox(
-              height: 10,
-            ),
-            _heading("Settings"),
-            const SizedBox(
-              height: 6,
-            ),
-            _settingsCard(),
-            updateButton()
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _getHeader() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Container(
-            height: 80,
-            width: 80,
-            decoration: const BoxDecoration(
-              shape: BoxShape.circle,
-              image: DecorationImage(
-                fit: BoxFit.fill,
-                image: AssetImage('assets/images/profile.jpg'),
+      backgroundColor: const Color.fromARGB(255, 248, 255, 246),
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              const Text(
+                'Add Your Profile Details',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 28.0,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-              // color: Colors.orange[100],
-            ),
+              const Spacer(flex: 2),
+              EditableImage(
+                // Define the method that will run on the change process of the image.
+                onChange: (file) => _directUpdateImage(file),
+
+                // Define the source of the image.
+                image: _profilePicFile != null
+                    ? Image.file(_profilePicFile!, fit: BoxFit.cover)
+                    : null,
+
+                // Define the size of EditableImage.
+                size: 150.0,
+
+                // Define the Theme of image picker.
+                imagePickerTheme: ThemeData(
+                  // Define the default brightness and colors.
+                  primaryColor: Colors.white,
+                  shadowColor: Colors.transparent,
+                  backgroundColor: const Color.fromARGB(179, 128, 255, 181),
+                  iconTheme: const IconThemeData(color: Colors.black87),
+
+                  // Define the default font family.
+                  fontFamily: 'Georgia',
+                ),
+
+                // Define the border of the image if needed.
+                imageBorder: Border.all(color: const Color.fromARGB(221, 1, 88, 21), width: 2.0),
+
+                // Define the border of the icon if needed.
+                editIconBorder: Border.all(color: const Color.fromARGB(221, 1, 88, 14), width: 2.0),
+              ),
+              const Spacer(flex: 2),
+              _buildTextField(labelText: 'Full Name'),
+              const Spacer(),
+              _buildTextField(labelText: 'Phone Number'),
+              const Spacer(),
+              _buildTextField(labelText: 'Email'),
+              const Spacer(),
+              _buildTextField(labelText: 'Password', obscureText: true),
+              const Spacer(flex: 2),
+              _buildTextButton(),
+            ],
           ),
         ),
-      ],
+      ),
     );
   }
 
-  Widget _profileName(String name) {
-    return SizedBox(
-      width: MediaQuery.of(context).size.width * 0.80, //80% of width,
-      child: Center(
-        child: Text(
-          name,
-          style: const TextStyle(
-              color: Colors.black, fontSize: 24, fontWeight: FontWeight.w800),
+  TextField _buildTextField({String labelText = '', bool obscureText = false}) {
+    return TextField(
+      cursorColor: Colors.black54,
+      cursorWidth: 1.0,
+      obscureText: obscureText,
+      obscuringCharacter: '●',
+      decoration: InputDecoration(
+        labelText: labelText,
+        labelStyle: const TextStyle(
+          color: Color.fromARGB(252, 0, 0, 0),
+          fontSize: 18.0,
+        ),
+        fillColor: const Color.fromARGB(255, 147, 255, 153),
+        border: const OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Colors.black54,
+          ),
+          borderRadius: BorderRadius.all(
+            Radius.circular(40.0),
+          ),
+        ),
+        focusedBorder: const OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Color.fromARGB(255, 19, 96, 0),
+            width: 1.5,
+          ),
+          borderRadius: BorderRadius.all(
+            Radius.circular(40.0),
+          ),
         ),
       ),
     );
   }
 
-  Widget _heading(String heading) {
-    return SizedBox(
-      width: MediaQuery.of(context).size.width * 0.80, //80% of width,
-      child: Text(
-        heading,
-        style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+  TextButton _buildTextButton() {
+    return TextButton(
+      onPressed: () => {},
+      style: ButtonStyle(shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+        RoundedRectangleBorder(borderRadius: BorderRadius.circular(40.0),)),
+        padding: MaterialStateProperty.all(
+          const EdgeInsets.symmetric(vertical: 20.0,),
+        ),
+        side:
+            MaterialStateProperty.all(const BorderSide(color: Colors.black54)),
+        backgroundColor: MaterialStateProperty.all(const Color.fromARGB(255, 123, 255, 106)),
+        shadowColor: MaterialStateProperty.all(const Color.fromARGB(255, 128, 167, 123))
       ),
-    );
-  }
-
-  Widget _detailsCard() {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Card(
-        elevation: 4,
-        child: Column(
-          children: const [
-            //row for each deatails
-            ListTile(
-              leading: Icon(Icons.email),
-              title: Text("lahiru.sl24@gmail.com"),
-            ),
-            Divider(
-              height: 0.6,
-              color: Colors.black87,
-            ),
-            ListTile(
-              leading: Icon(Icons.phone),
-              title: Text("0773558851"),
-            ),
-            Divider(
-              height: 0.6,
-              color: Colors.black87,
-            ),
-            ListTile(
-              leading: Icon(Icons.location_on),
-              title: Text("Kegalle"),
-            )
-          ],
+      child: const Text(
+        'Save',
+        style: TextStyle(
+          color: Colors.black,
+          fontSize: 25.0,
         ),
       ),
-    );
-  }
-
-  Widget _settingsCard() {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Card(
-        elevation: 4,
-        child: Column(
-          children: const [
-            //row for each deatails
-            ListTile(
-              leading: Icon(Icons.settings),
-              title: Text(
-                "Settings",
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-            ),
-            Divider(
-              height: 0.6,
-              color: Colors.black87,
-            ),
-            ListTile(
-              leading: Icon(Icons.dashboard_customize),
-              title: Text("About Us"),
-            ),
-            Divider(
-              height: 0.6,
-              color: Colors.black87,
-            ),
-            ListTile(
-              leading: Icon(Icons.topic),
-              title: Text("Change Theme"),
-            )
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget updateButton() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        InkWell(
-          onTap: () {},
-          child: Container(
-              color: const Color.fromARGB(255, 48, 138, 102),
-              child: Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    Icon(
-                      Icons.logout,
-                      color: Colors.white,
-                    ),
-                    SizedBox(width: 10),
-                    Text(
-                      "Update Profile",
-                      style: TextStyle(color: Colors.white, fontSize: 18),
-                    )
-                  ],
-                ),
-              )),
-        ),
-      ],
     );
   }
 }
