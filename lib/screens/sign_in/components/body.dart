@@ -11,7 +11,6 @@ import '../../../constants.dart';
 import '../../../shared.dart';
 import '../../sign_up/components/or_divider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-
 import '../../trouble_login/trouble_login.dart';
 
 class Body extends StatefulWidget {
